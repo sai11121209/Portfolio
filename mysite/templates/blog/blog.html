@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+    <head>
+    {% block extrahead %}
+        <meta http-equiv="content-type" charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'blog/blog.css' %}">
+        <title>blog</title>
+    </head>
+    <body>
+        <div id="blog-top">
+            <header>
+                <h1>Blog</h1>
+                <div class="headerIn">
+                    <ul>
+                        <li><a href="../">>Top</a></li>
+                        <li><a href="../portfolio">>Portfolio</a></li>
+                    </ul>
+                </div>
+            </header>
+            <div id="contents">
+                <div class="contentsIn">
+                    <h2>contents</h2>
+                </div>
+            </div>
+            <footer>
+                <div class="footerIn">
+                    <small>©2020 Yuta Saikawa All Right Reserved.</small>
+                </div>
+            </footer>
+        </div>
+        <script src="{% static 'portfolio.js' %}"></script>
+    </body>
+    {% endblock %}
+</html>
