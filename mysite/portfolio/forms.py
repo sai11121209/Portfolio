@@ -5,9 +5,6 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
         fields = ('name', 'email', 'title', 'txt')
-        label = ('氏名', 'メールアドレス', '件名', 'ご意見・お問い合わせ')
-        required = (True,False,True,True)
-        widget = ('','',forms.Textarea,'')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

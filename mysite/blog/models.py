@@ -1,4 +1,3 @@
-from typing import DefaultDict
 from django.db import models
 from django.utils import timezone
 
@@ -7,8 +6,8 @@ class Post(models.Model):
     author = models.ForeignKey('auth.user', on_delete=models.CASCADE)
     title = models.TextField(max_length=500)
     text = models.TextField()
-    info = models.TextField()
     tag = models.TextField()
+    comment = models.TextField(null=True)
     created_date = models.DateTimeField(default=timezone.now)
     Update_date = models.DateField(blank=True,null=True)
 

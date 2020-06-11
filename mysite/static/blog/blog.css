@@ -99,10 +99,12 @@ header h1 {
 }
 #contents {
     margin-top: 100px;
+    background-color: #F5F5F5;
 }
 .contentsIn {
     background-color: #FFF;
     max-width: 998px;
+    height: 1000px;
     margin: 0 auto;
     text-align: center;
 }
