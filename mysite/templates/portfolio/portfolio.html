@@ -12,7 +12,7 @@
         <title>Portfolio</title>
     </head>
     <body>
-        <div class="portfolio-top">
+        <div id="portfolio-top">
             <header>
                 <h1>Portfolio</h1>
                 <div class="headerIn">
@@ -89,23 +89,9 @@
                             <p>Gmail:sai11121209_at_.gmail.com</p>
                             <p>_at_を@マークに変更してください。</p>
                         </div>
-                        <form >
-                            <p>
-                                氏名<br>
-                                <input type="text" name="name" placeholder="例)山田 太郎">
-                            </p>
-                            <p>
-                                メールアドレス<br>
-                                <input type="text" name="mail-address" placeholder="例)portfolio@example.com">
-                            </p>
-                            <p>
-                                タイトル<br>
-                                <input type="text" name="title" placeholder="件名を入力してください。">
-                            </p>
-                            <p>
-                                ご意見・お問い合わせ<br>
-                                <textarea placeholder="お問い合わせの内容をご入力ください。"></textarea>
-                            </p>
+                        <form method="POST" novalidate>
+                            {% csrf_token %}
+                            {{ form.as_p}}
                             <button type="submit">送信</button>
                         </form>
                     </section>
