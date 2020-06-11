@@ -27,7 +27,11 @@
             </header>
             <div id="contents">
                 <div class="contentsIn">
-                    <h2>contents</h2>
+                    <form method="POST" novalidate>
+                        {% csrf_token %}
+                        {{ form.as_p}}
+                        <button type="submit">登録</button>
+                    </form>
                 </div>
             </div>
             <footer>

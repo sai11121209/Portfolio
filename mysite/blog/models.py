@@ -17,3 +17,12 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class User(models.Model):
+    username = models.TextField(max_length=150)
+    email = models.TextField(max_length=254)
+    password = models.TextField(max_length=128)
+    created_date = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.username

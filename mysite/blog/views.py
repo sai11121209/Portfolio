@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
-from .forms import PostForm
+from django import forms
+from .forms import PostForm, RegisterForm
+from .models import User
+from django.contrib.auth.hashers import make_password
 
 # Create your views here.
 def blog(request):
@@ -7,7 +10,22 @@ def blog(request):
 
 
 def register(request):
-    return render(request, 'blog/register.html')
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        form.fields['password'].widget = forms.PasswordInput(attrs={'placeholder':'パスワード'})
+        form.fields['repassword'].widget = forms.PasswordInput(attrs={'placeholder':'パスワード再入力'})
+        print(form)
+        if form.is_valid:
+            if form.fields['password'] == form.fields['repassword']:
+                User.objects.create (
+                    username=form.cleaned_data['username'],
+                    email=form.cleaned_data['email'],
+                    password=make_password(form.cleaned_data['password']),
+                )
+        return redirect('login')
+    else:
+        form = RegisterForm()
+        return render(request, 'blog/register.html', {'form':form})
 
 
 def login(request):
@@ -21,7 +39,6 @@ def post(request):
         if form.is_valid():
             form.save()
             print('a')
-            return redirect('post')
         return redirect('post')
     else:
         form = PostForm()
