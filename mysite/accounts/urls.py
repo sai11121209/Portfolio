@@ -5,5 +5,5 @@ app_name = 'accounts'
 
 urlpatterns = [
     path('signup/', views.SignUpView.as_view(), name='signup'),
-    path('user/', views.User, name='user')
+    path('mypage/', views.MyPage, name='mypage'),
 ]

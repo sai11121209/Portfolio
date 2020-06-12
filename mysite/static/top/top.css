@@ -37,6 +37,9 @@ h3::before {
 h3::after {
     margin-left: 1rem;
 }
+header a {
+    color: #FFF;
+}
 #top {
     color: #000; /*文字色*/
     display: flex;

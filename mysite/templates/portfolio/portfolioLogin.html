@@ -1,0 +1,6 @@
+{% extends 'portfolio/base.html' %}
+
+{% block user %}
+    <a href="../accounts/mypage"><p>ログイン中のユーザー:{{ username }}</p></a>
+    <a href="../accounts/logout">ログアウト</a>
+{% endblock  %}

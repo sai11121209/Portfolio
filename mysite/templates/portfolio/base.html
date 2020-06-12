@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+    <head>
+    {% block extrahead %}
+        <meta http-equiv="content-type" charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'portfolio/portfolio.css' %}">
+        <script src="{% static 'portfolio/portfolio.js' %}"></script>
+        <title>Portfolio</title>
+    </head>
+    <body>
+        <div id="portfolio-top">
+            <header>
+                <h1>Portfolio</h1>
+                <div class="headerIn">
+                    <ul>
+                        <li><a href="../top">>Top</a></li>
+                        <li><a href="#about">>About</a></li>
+                        <li><a href="#work">>Work</a></li>
+                        <li><a href="#contact">>Contact</a></li>
+                    </ul>
+                </div>
+                {% block user %}
+                {% endblock %}
+            </header>
+            <div id="contents">
+                <div id="about">
+                    <section class="about-img">
+                        <div class="contents-header">
+                            <h2>About</h2>
+                            <a href="#my-info"><img class="icon-arrow" src="{% static 'portfolio/imgs/icon_arrow.png' %}"></a>
+                        </div>
+                    </section>
+                    <section id="my-info">
+                        <h3>自己紹介</h3>
+                        <div class="my-name">
+                            <img class="my-img" src="{% static 'portfolio/imgs/myimg.jpg' %}">
+                            <div>
+                                <h1>齋川 祐太</h1>
+                            </div>
+                        </div>
+                        <p>1999年12月9日生まれ工学院大学情報学部コンピュータ科学科で情報学について学び日々プログラミングを勉強しています。好きなことは旅行に行くことと音楽鑑賞です。</p>
+                        <h3>言語</h3>
+                        <p>使用可能言語はPython,Java,C,html,cssです。</p>
+                        <h3>フレームワーク</h3>
+                        <p>JavaScriptのReact,jQueryを勉強しています。</p>
+                        <h3>OS</h3>
+                        <p>Windows</p>
+                    </section>
+                </div>
+                <div id="work">
+                    <section class="work-img">
+                        <div class="contents-header">
+                            <h2>Work</h2>
+                            <a href="#my-works"><img class="icon-arrow" src="{% static 'portfolio/imgs/icon_arrow.png' %}"></a>
+                        </div>
+                    </section>
+                    <section id="my-works">
+                        <div class="my-work">
+                            <h3>天気予報アプリ</h3>
+                            <div>
+                                <img src="{% static 'portfolio/imgs/my-work1.png' %}">
+                            </div>
+                            <a href="https://github.com/sai11121209/Weather_Checker">GitHub</a>
+                        </div>
+                        <div class="my-work">
+                            <h3>東京ディズニーリゾート待ち時間解析アプリ</h3>
+                            <div>
+                                <img src="{% static 'portfolio/imgs/my-work2_1.png' %}">
+                                <img src="{% static 'portfolio/imgs/my-work2_2.png' %}">
+                                <img src="{% static 'portfolio/imgs/my-work2_3.png' %}">
+                            </div>
+                            <a href="https://github.com/sai11121209/TDR_Wait_Time_Analysis_App">GitHub</a>
+                        </div>
+                    </section>
+                </div>
+                <div id="contact">
+                    <section class="contact-img">
+                        <div class="contents-header">
+                            <h2>Contact</h2>
+                            <a href="#my-contact"><img class="icon-arrow" src="{% static 'portfolio/imgs/icon_arrow.png' %}"></a>
+                        </div>
+                    </section>
+                    <section id="my-contact">
+                        <h3>フォーム</h3>
+                        <div>
+                            <p>Gmail:sai11121209_at_.gmail.com</p>
+                            <p>_at_を@マークに変更してください。</p>
+                        </div>
+                        <form method="POST" novalidate>
+                            <ul>
+                                {% csrf_token %}
+                                {{ form.as_ul}}
+                            </ul>
+                            <button type="submit">送信</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+            <footer>
+                <div class="footerIn">
+                    <small>©2020 Yuta Saikawa All Right Reserved.</small>
+                </div>
+            </footer>
+        </div>
+    </body>
+    {% endblock %}
+</html>

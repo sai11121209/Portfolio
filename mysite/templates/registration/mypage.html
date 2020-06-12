@@ -1,20 +1,24 @@
 {% extends 'registration/base.html' %}
 
 {% block title %}
-Login
+MyPage
 {% endblock title %}
 
 {% block titleh1 %}
-Login
+MyPage
 {% endblock titleh1 %}
 
 {% block headerli %}
     <li><a href="../../top">>Top</a></li>
     <li><a href="../../blog/post">>Post</a></li>
-    <li><a href="../signup">>Signup</a></li>
     <li><a href="../../portfolio">>Portfolio</a></li>
 {% endblock headerli %}
 
-{% block buttontext %}
-ログイン
-{% endblock buttontext %}
+{% block user %}
+    <p>ログイン中のユーザー:{{ username }}</p>
+    <a href="../../accounts/logout">ログアウト</a>
+{% endblock user %}
+
+{% block contentsIn %}
+    <a href="../../accounts/password_change">パスワード変更</a>
+{% endblock contentsIn %}

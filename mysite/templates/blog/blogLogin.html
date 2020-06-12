@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 
 {% block title %}
-blogLogin
+BlogLogin
 {% endblock title %}
 
 {% block titleh1 %}
@@ -9,12 +9,12 @@ BlogLogin
 {% endblock titleh1 %}
 
 {% block headerli %}
-<li><a href="../top">>Top</a></li>
-<li><a href="./post">>Post</a></li>
-<li><a href="../portfolio">>Portfolio</a></li>
+    <li><a href="../top">>Top</a></li>
+    <li><a href="./post">>Post</a></li>
+    <li><a href="../portfolio">>Portfolio</a></li>
 {% endblock headerli %}
 
 {% block user %}
-<p>ログイン中のユーザー:{{ username }}</p>
-<a href="../accounts/logout">ログアウト</a>
+    <a href="../accounts/mypage"><p>ログイン中のユーザー:{{ username }}</p></a>
+    <a href="../accounts/logout">ログアウト</a>
 {% endblock  %}

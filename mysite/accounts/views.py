@@ -1,6 +1,4 @@
 from django.shortcuts import render, redirect
-from django import forms
-from .models import User
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.forms import UserCreationForm
@@ -43,6 +41,5 @@ class SignUpView(generic.CreateView):
     success_url = reverse_lazy('login')
     template_name = 'registration/signup.html'
 
-def User(request):
-    print(request.user)
-    return redirect('login')
+def MyPage(request):
+    return render(request, 'registration/mypage.html', {'username': request.user})
