@@ -9,29 +9,24 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="{% static 'blog/blog.css' %}">
         <script src="{% static 'portfolio/portfolio.js' %}"></script>
-        <title>Register</title>
+        <title>blog</title>
     </head>
     <body>
         <div id="blog-top">
             <header>
-                <h1>Register</h1>
+                <h1>Blog</h1>
                 <div class="headerIn">
                     <ul>
-                        <li><a href="../">>Top</a></li>
-                        <li><a href="post">>Post</a></li>
-                        <li><a href="register">>Register</a></li>
-                        <li><a href="../login">>Login</a></li>
+                        <li><a href="../top">>Top</a></li>
+                        <li><a href="./post">>Post</a></li>
                         <li><a href="../portfolio">>Portfolio</a></li>
                     </ul>
                 </div>
+                <p>ログイン中のユーザー:{{ username }}</p>
+                <a href="../accounts/logout">ログアウト</a>
             </header>
             <div id="contents">
                 <div class="contentsIn">
-                    <form method="POST" novalidate>
-                        {% csrf_token %}
-                        {{ form.as_p}}
-                        <button type="submit">登録</button>
-                    </form>
                 </div>
             </div>
             <footer>

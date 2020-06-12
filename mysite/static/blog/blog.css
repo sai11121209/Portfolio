@@ -53,6 +53,11 @@ header h1 {
     font-family: 'Noto Sans JP';
     padding-left: 50px;
 }
+header p {
+    font-family: 'Noto Sans JP';
+    padding-right: 50px;
+    padding-top: 20px;
+}
 .headerIn {
     z-index: 1;
     min-width: 1000px;

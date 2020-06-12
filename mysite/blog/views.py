@@ -1,45 +1,32 @@
 from django.shortcuts import render, redirect
-from django import forms
-from .forms import PostForm, RegisterForm
-from .models import User
-from django.contrib.auth.hashers import make_password
+from .forms import PostForm
+from .models import Post
+from django.contrib.auth.hashers import make_password, check_password
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 def blog(request):
-    return render(request, 'blog/blog.html')
-
-
-def register(request):
-    if request.method == 'POST':
-        form = RegisterForm(request.POST)
-        form.fields['password'].widget = forms.PasswordInput(attrs={'placeholder':'パスワード'})
-        form.fields['repassword'].widget = forms.PasswordInput(attrs={'placeholder':'パスワード再入力'})
-        print(form)
-        if form.is_valid:
-            if form.fields['password'] == form.fields['repassword']:
-                User.objects.create (
-                    username=form.cleaned_data['username'],
-                    email=form.cleaned_data['email'],
-                    password=make_password(form.cleaned_data['password']),
-                )
-        return redirect('login')
+    if request.user.id == None:
+        return render(request, 'blog/blog.html')
     else:
-        form = RegisterForm()
-        return render(request, 'blog/register.html', {'form':form})
+        return render(request, 'blog/blogLogin.html', {'username': request.user})
 
-
-def login(request):
-    return render(request, 'blog/login.html')
-
-
+@login_required
 def post(request):
-    if request.method == 'POST':
-        form = PostForm(request.POST)
+    form = PostForm(request.POST or None)
+    if request.method == 'POST' and form.is_valid():
+        Post.objects.create(
+            author_id=request.user.id,
+            title=form.cleaned_data['title'],
+            tag=form.cleaned_data['tag'],
+            text=form.cleaned_data['text'],
+        )
         print('a')
-        if form.is_valid():
-            form.save()
-            print('a')
-        return redirect('post')
-    else:
-        form = PostForm()
-    return render(request, 'blog/post.html', {'form': form})
+        return redirect('../blogLogin')
+    return render(request, 'blog/post.html', {'form': form,'username': request.user})
+
+#@login_required
+def User(request):
+    print(request.user.id)
+    return redirect('login')

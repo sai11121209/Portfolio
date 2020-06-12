@@ -10,6 +10,9 @@ body {
     Meiryo;
     margin: 0;
 }
+ul li {
+    list-style: none;
+}
 h2 {
     font-size: 50px;
     position: absolute;
@@ -305,11 +308,18 @@ header h1 {
     flex-direction: column;
     margin: 120px;
 }
+form {
+    width: 600px;
+    margin: 0 auto;
+}
+label {
+    float: left;
+}
 input {
     width: 600px;
     border-radius: 5px;
 }
-textarea{
+textarea {
     resize: none;
     width: 600px;
     height: 140px;

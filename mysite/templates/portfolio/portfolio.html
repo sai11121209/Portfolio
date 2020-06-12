@@ -17,11 +17,10 @@
                 <h1>Portfolio</h1>
                 <div class="headerIn">
                     <ul>
-                        <li><a href="../">>Top</a></li>
+                        <li><a href="../top">>Top</a></li>
                         <li><a href="#about">>About</a></li>
                         <li><a href="#work">>Work</a></li>
                         <li><a href="#contact">>Contact</a></li>
-                        <li><a href="../blog">>Blog</a></li>
                     </ul>
                 </div>
             </header>
@@ -84,14 +83,16 @@
                         </div>
                     </section>
                     <section id="my-contact">
-                        <h3>メール</h3>
+                        <h3>フォーム</h3>
                         <div>
                             <p>Gmail:sai11121209_at_.gmail.com</p>
                             <p>_at_を@マークに変更してください。</p>
                         </div>
                         <form method="POST" novalidate>
-                            {% csrf_token %}
-                            {{ form.as_p}}
+                            <ul>
+                                {% csrf_token %}
+                                {{ form.as_ul}}
+                            </ul>
                             <button type="submit">送信</button>
                         </form>
                     </section>

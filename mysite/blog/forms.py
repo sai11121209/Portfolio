@@ -1,6 +1,5 @@
 from django import forms
-from .models import Post, User
-from django.contrib.auth.hashers import make_password
+from .models import Post
 
 class PostForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -11,13 +10,4 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ('author', 'title', 'text', 'tag')
-
-
-
-
-class RegisterForm(forms.Form):
-    username = forms.CharField(label='ユーザネーム', widget=forms.TextInput(attrs={'placeholder':'タイトル'}))
-    email = forms.EmailField(label='メールアドレス', widget=forms.TextInput(attrs={'placeholder':'例)portfolio@example.com'}))
-    password = forms.CharField(label='パスワード', widget=forms.PasswordInput(attrs={'placeholder':'パスワード'}))
-    repassword = forms.CharField(label='パスワード再入力', widget=forms.PasswordInput(attrs={'placeholder':'パスワード再入力'}))
+        fields = ('title', 'text', 'tag')
