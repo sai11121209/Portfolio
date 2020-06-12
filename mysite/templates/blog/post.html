@@ -1,45 +1,20 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="ja">
-    <head>
-    {% block extrahead %}
-        <meta http-equiv="content-type" charset="utf-8">
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="{% static 'blog/blog.css' %}">
-        <script src="{% static 'portfolio/portfolio.js' %}"></script>
-        <title>Post</title>
-    </head>
-    <body>
-        <div id="blog-top">
-            <header>
-                <h1>Post</h1>
-                <div class="headerIn">
-                    <ul>
-                        <li><a href="../">>Top</a></li>
-                        <li><a href="../">>Blog</a></li>
-                        <li><a href="../../portfolio">>Portfolio</a></li>
-                    </ul>
-                </div>
-                <p>ログイン中のユーザー:{{ username }}</p>
-                <a href="../../accounts/logout">ログアウト</a>
-            </header>
-            <div id="contents">
-                <div class="contentsIn">
-                    <form method="POST" novalidate>
-                        {% csrf_token %}
-                        {{ form.as_p}}
-                        <button type="submit">投稿</button>
-                    </form>
-                </div>
-            </div>
-            <footer>
-                <div class="footerIn">
-                    <small>©2020 Yuta Saikawa All Right Reserved.</small>
-                </div>
-            </footer>
-        </div>
-    </body>
-    {% endblock %}
-</html>
+{% extends 'blog/base.html' %}
+
+{% block title %}
+Post
+{% endblock title %}
+
+{% block titleh1 %}
+Post
+{% endblock titleh1 %}
+
+{% block headerli %}
+    <li><a href="../">>Top</a></li>
+    <li><a href="../">>Blog</a></li>
+    <li><a href="../../portfolio">>Portfolio</a></li>
+{% endblock headerli %}
+
+{% block user %}
+<p>ログイン中のユーザー:{{ username }}</p>
+<a href="../accounts/logout">ログアウト</a>
+{% endblock  %}

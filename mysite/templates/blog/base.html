@@ -9,29 +9,29 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="{% static 'blog/blog.css' %}">
         <script src="{% static 'portfolio/portfolio.js' %}"></script>
-        <title>Logout</title>
+        <title>{% block title %}blog{% endblock %}</title>
     </head>
     <body>
         <div id="blog-top">
             <header>
-                <h1>Logout</h1>
+                <h1>{% block titleh1 %}Blog{% endblock %}</h1>
                 <div class="headerIn">
                     <ul>
+                        {% block headerli %}
                         <li><a href="../top">>Top</a></li>
-                        <li><a href="post">>Post</a></li>
-                        <li><a href="../register">>Register</a></li>
-                        <li><a href="login">>Login</a></li>
+                        <li><a href="./post">>Post</a></li>
+                        <li><a href="../accounts/signup">>Signup</a></li>
+                        <li><a href="../accounts/login">>Login</a></li>
                         <li><a href="../portfolio">>Portfolio</a></li>
+                        {% endblock headerli %}
                     </ul>
                 </div>
+                {% block user %}
+                {% endblock %}
             </header>
             <div id="contents">
                 <div class="contentsIn">
-                    <form method="POST" novalidate>
-                        {% csrf_token %}
-                        {{ form.as_p}}
-                        <button type="submit">登録</button>
-                    </form>
+                    <h2>contents</h2>
                 </div>
             </div>
             <footer>
