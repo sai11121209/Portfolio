@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post
+from .models import Posts
 
 class PostForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -9,5 +9,5 @@ class PostForm(forms.ModelForm):
         self.fields['text'] = forms.CharField(label='本文', widget=forms.Textarea(attrs={'placeholder':'記入欄'}))
 
     class Meta:
-        model = Post
+        model = Posts
         fields = ('title', 'text', 'tag')

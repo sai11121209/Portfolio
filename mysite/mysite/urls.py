@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path,include
 from . import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')), # [追加]
     path('accounts/', include('django.contrib.auth.urls')),
-    path('top/', views.top),
+    path('top/', views.top, name='top'),
     path('', include('portfolio.urls')),
     path('', include('blog.urls')),
 ]

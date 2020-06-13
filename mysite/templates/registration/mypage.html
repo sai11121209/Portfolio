@@ -9,16 +9,24 @@ MyPage
 {% endblock titleh1 %}
 
 {% block headerli %}
-    <li><a href="../../top">>Top</a></li>
-    <li><a href="../../blog/post">>Post</a></li>
-    <li><a href="../../portfolio">>Portfolio</a></li>
+    <li><a href="{% url 'top' %}">>Top</a></li>
+    <li><a href="{% url 'blog:post' %}">>Post</a></li>
+    <li><a href="{% url 'portfolio:home' %}">>Portfolio</a></li>
 {% endblock headerli %}
 
 {% block user %}
     <p>ログイン中のユーザー:{{ username }}</p>
-    <a href="../../accounts/logout">ログアウト</a>
+    <a href="{% url 'logout' %}">ログアウト</a>
 {% endblock user %}
 
 {% block contentsIn %}
+    <h1>Blog投稿一覧</h1>
+    {% for postlist in postlists %}
+        <a href="{% url 'blog:detail' pk=postlist.pk %}">{{ postlist }}</a><br>
+    {% endfor %}
+    <h1>Portfolio連絡履歴</h1>
+    {% for contactlist in contactlists %}
+        <a href="{% url 'portfolio:detail' pk=contactlist.pk %}">{{ contactlist }}</a><br>
+    {% endfor %}
     <a href="../../accounts/password_change">パスワード変更</a>
 {% endblock contentsIn %}

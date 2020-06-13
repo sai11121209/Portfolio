@@ -18,11 +18,11 @@
                 <div class="headerIn">
                     <ul>
                         {% block headerli %}
-                        <li><a href="../top">>Top</a></li>
-                        <li><a href="./post">>Post</a></li>
-                        <li><a href="../accounts/signup">>Signup</a></li>
-                        <li><a href="../accounts/login">>Login</a></li>
-                        <li><a href="../portfolio">>Portfolio</a></li>
+                        <li><a href="{% url 'top' %}">>Top</a></li>
+                        <li><a href="{% url 'blog:post' %}">>Post</a></li>
+                        <li><a href="{% url 'signup' %}">>Signup</a></li>
+                        <li><a href="{% url 'login' %}">>Login</a></li>
+                        <li><a href="{% url 'portfolio:home' %}">>Portfolio</a></li>
                         {% endblock headerli %}
                     </ul>
                 </div>

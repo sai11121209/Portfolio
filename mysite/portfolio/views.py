@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .forms import ContactForm, ContactLoginForm
 from .models import Contact
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, get_object_or_404
 # Create your views here.
 
 def Portfolio(request):
@@ -24,3 +26,15 @@ def Portfolio(request):
             )
         return redirect('portfolio')
     return render(request, f'portfolio/{template}.html', para)
+
+@login_required
+def ContactDetail(request, pk):
+    if get_object_or_404(Contact, pk=pk).name == str(request.user):
+        contact = get_object_or_404(Contact, pk=pk)
+        print(request.method)
+        if request.method == 'POST':
+            print('b')
+            Contact.objects.filter(pk=pk).delete()
+            return redirect('accounts:mypage')
+        return render(request, 'portfolio/contactdetail.html', {'username': request.user, 'contact': contact})
+    return redirect('portfolio:portfolio')

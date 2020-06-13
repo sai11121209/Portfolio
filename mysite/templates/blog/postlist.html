@@ -1,11 +1,11 @@
 {% extends 'blog/base.html' %}
 
 {% block title %}
-BlogLogin
+PostList
 {% endblock title %}
 
 {% block titleh1 %}
-BlogLogin
+PostList
 {% endblock titleh1 %}
 
 {% block headerli %}
@@ -17,4 +17,10 @@ BlogLogin
 {% block user %}
     <a href="{% url 'mypage' %}"><p>ログイン中のユーザー:{{ username }}</p></a>
     <a href="{% url 'logout' %}">ログアウト</a>
-{% endblock user %}
+{% endblock  %}
+
+{% block contents %}
+{% for postlist in postlists %}
+    <a href="{% url 'blog:detail' pk=postlist.pk %}">{{ postlist }}</a><br>
+{% endfor %}
+{% endblock contents %}

@@ -9,12 +9,22 @@ Post
 {% endblock titleh1 %}
 
 {% block headerli %}
-    <li><a href="../../">>Top</a></li>
-    <li><a href="../">>Blog</a></li>
-    <li><a href="../../portfolio">>Portfolio</a></li>
+    <li><a href="{% url 'top' %}">>Top</a></li>
+    <li><a href="{% url 'blog:home' %}">>Blog</a></li>
+    <li><a href="{% url 'portfolio:home' %}">>Portfolio</a></li>
 {% endblock headerli %}
 
 {% block user %}
 <p>ログイン中のユーザー:{{ username }}</p>
-<a href="../../accounts/logout">ログアウト</a>
-{% endblock  %}
+<a href="{% url 'logout' %}">ログアウト</a>
+{% endblock user %}
+
+{% block contents %}
+<form method="POST" novalidate>
+    <ul>
+        {% csrf_token %}
+        {{ form.as_ul}}
+    </ul>
+    <button type="submit">送信</button>
+</form>
+{% endblock contents %}

@@ -2,7 +2,11 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.hashers import make_password, check_password
+from django.contrib.auth.decorators import login_required
+import sys
+sys.path.append('../')
+from blog.models import Posts
+from portfolio.models import Contact
 
 # Create your views here.
 """
@@ -41,5 +45,9 @@ class SignUpView(generic.CreateView):
     success_url = reverse_lazy('login')
     template_name = 'registration/signup.html'
 
+@login_required
 def MyPage(request):
-    return render(request, 'registration/mypage.html', {'username': request.user})
+    postlists = Posts.objects.filter(author=request.user)
+    contactlists = Contact.objects.filter(name=request.user)
+    print(postlists)
+    return render(request, 'registration/mypage.html', {'username': request.user, 'postlists': postlists, 'contactlists': contactlists})
