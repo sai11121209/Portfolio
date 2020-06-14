@@ -7,7 +7,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="{% static 'blog/blog.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'accounts/accounts.css' %}">
         <script src="{% static 'portfolio/portfolio.js' %}"></script>
         <title>{% block title %}blog{% endblock %}</title>
     </head>
@@ -30,14 +30,16 @@
                 {% endblock %}
             </header>
             <div id="contents">
-                <div class="contentsIn">
-                    {% block contentsIn %}
-                    <form method="POST" novalidate>
-                        {% csrf_token %}
-                        {{ form.as_p}}
-                        <button type="submit">{% block buttontext %}{% endblock buttontext %}</button>
-                    </form>
-                    {% endblock contentsIn %}
+                <div class="contentsWall">
+                    <div class="contentsIn">
+                        {% block contentsIn %}
+                        <form method="POST" novalidate>
+                            {% csrf_token %}
+                            {{ form.as_p}}
+                            <button type="submit">{% block buttontext %}{% endblock buttontext %}</button>
+                        </form>
+                        {% endblock contentsIn %}
+                    </div>
                 </div>
             </div>
             <footer>

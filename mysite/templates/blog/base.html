@@ -20,8 +20,10 @@
                         {% block headerli %}
                         <li><a href="{% url 'top' %}">>Top</a></li>
                         <li><a href="{% url 'blog:post' %}">>Post</a></li>
-                        <li><a href="{% url 'signup' %}">>Signup</a></li>
-                        <li><a href="{% url 'login' %}">>Login</a></li>
+                        {% if username.id == None  %}
+                            <li><a href="{% url 'signup' %}">>Signup</a></li>
+                            <li><a href="{% url 'login' %}">>Login</a></li>
+                        {% endif %}
                         <li><a href="{% url 'portfolio:home' %}">>Portfolio</a></li>
                         {% endblock headerli %}
                     </ul>
@@ -30,10 +32,12 @@
                 {% endblock user %}
             </header>
             <div id="contents">
-                <div class="contentsIn">
-                    {% block contents %}
-                    <h2>contents</h2>
-                    {% endblock contents %}
+                <div class="contentsWall">
+                    <div class="contentsIn">
+                        {% block contents %}
+                        <h2>contents</h2>
+                        {% endblock contents %}
+                    </div>
                 </div>
             </div>
             <footer>

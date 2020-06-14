@@ -21,10 +21,12 @@ Blog
 
 {% block contents %}
 <h1>最新記事</h1>
-{% for postlist in postlists %}
-    <div class=postlist>
-        <a href="{% url 'blog:detail' pk=postlist.pk %}"><h1>{{postlist}}</h1></a>
-        <p>by {{postlist.author}} {{postlist.update_date|timesince}}
-    </div>
-{% endfor %}
+<div class="postlists">
+    {% for postlist in postlists %}
+        <div>
+            <a href="{% url 'blog:detail' pk=postlist.pk %}">{{postlist}}</a>
+            <p>by {{postlist.author}}　{{postlist.update_date|timesince}}前
+        </div>
+    {% endfor %}
+</div>
 {% endblock contents %}

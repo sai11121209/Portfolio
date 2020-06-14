@@ -9,7 +9,7 @@ from django.utils import timezone
 
 # Create your views here.
 def Blog(request):
-    postlists = Posts.objects.order_by('create_date').reverse()[:10]
+    postlists = Posts.objects.order_by('created_date').reverse()[:10]
     return render(request, 'blog/blog.html', {'username': request.user, 'postlists': postlists, 'time': timezone.now()})
 
 @login_required

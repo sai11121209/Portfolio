@@ -31,10 +31,12 @@
                 {% endif %}
             </header>
             <div id="contents">
-                <div class="contentsIn">
-                    {% block contents %}
-                    <h2>contents</h2>
-                    {% endblock contents %}
+                <div class="contentsWall">
+                    <div class="contentsIn">
+                        {% block contents %}
+                        <h2>contents</h2>
+                        {% endblock contents %}
+                    </div>
                 </div>
             </div>
             <footer>

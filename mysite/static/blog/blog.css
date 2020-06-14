@@ -112,16 +112,34 @@ header p {
     margin-top: 100px;
     background-color: #F5F5F5;
 }
-.contentsIn {
+.contentsWall {
     background-color: #FFF;
     max-width: 998px;
-    height: 1000px;
-    margin: 0 auto;
-    text-align: center;
+    margin: 30px auto;
+    border: 50px;
+}
+.contentsIn {
+    padding: 30px;
+}
+.contentsIn a {
+    color: #222222;
+    text-decoration: none;
+}
+.postlists div{
+    border-bottom: solid 1px #D3D3D3;
+}
+.postlists p{
+    color: #999999;
+}
+.postdata {
+    display: flex;
+    flex-direction: row;
+}
+.postdata p {
+    right: 0;
 }
 footer {
     text-align: center;
-    top: 500px
 }
 .footerIn {
     background-color: rgba(0, 0, 0, 0.55);

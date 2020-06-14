@@ -25,4 +25,5 @@ urlpatterns = [
     path('top/', views.top, name='top'),
     path('', include('portfolio.urls')),
     path('', include('blog.urls')),
+    path('markdownx/', include('markdownx.urls')),
 ]
