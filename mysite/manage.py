@@ -2,7 +2,7 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-#サーバ開始:runserver
+#サーバ開始:runserver192.168.11.9:8000
 #app作成:startapp
 #app追加1:mysite/setting.py.INSTALLED_APPSに追記
 #app追加2:makemigrations

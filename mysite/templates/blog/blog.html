@@ -24,7 +24,7 @@ Blog
 {% for postlist in postlists %}
     <div class=postlist>
         <a href="{% url 'blog:detail' pk=postlist.pk %}"><h1>{{postlist}}</h1></a>
-        <p>by {{postlist.author}}
+        <p>by {{postlist.author}} {{postlist.update_date|timesince}}
     </div>
 {% endfor %}
 {% endblock contents %}

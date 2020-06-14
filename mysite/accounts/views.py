@@ -58,14 +58,16 @@ def MyPage(request):
 
 def UsernameChange(request, pk):
     form = UsernameChangeForm(request.POST or None)
-    user = get_object_or_404(User, pk=pk)
-    form.fields['first_name'].widget = forms.TextInput(attrs={'value': user.first_name})
-    form.fields['last_name'].widget = forms.TextInput(attrs={'value': user.last_name})
-    form.fields['email'].widget = forms.TextInput(attrs={'value': user.email})
-    if request.method == 'POST' and form.is_valid():
-        user.first_name = form.cleaned_data['first_name']
-        user.last_name = form.cleaned_data['last_name']
-        user.email = form.cleaned_data['email']
-        user.save()
-        return redirect('top')
-    return render(request, 'registration/username_change_form.html', {'username': request.user, 'form': form})
+    if get_object_or_404(User, pk=pk).username == str(request.user):
+        user = get_object_or_404(User, pk=pk)
+        form.fields['first_name'].widget = forms.TextInput(attrs={'value': user.first_name})
+        form.fields['last_name'].widget = forms.TextInput(attrs={'value': user.last_name})
+        form.fields['email'].widget = forms.TextInput(attrs={'value': user.email})
+        if request.method == 'POST' and form.is_valid():
+            user.first_name = form.cleaned_data['first_name']
+            user.last_name = form.cleaned_data['last_name']
+            user.email = form.cleaned_data['email']
+            user.save()
+            return redirect('top')
+        return render(request, 'registration/username_change_form.html', {'username': request.user, 'form': form})
+    return redirect('mypage')

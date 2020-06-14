@@ -41,12 +41,13 @@ def ContactDetail(request, pk):
         return render(request, 'portfolio/contactdetail.html', {'username': request.user, 'contact': contact})
     return redirect('portfolio:home')
 
+@login_required
 def ContactEdit(request, pk):
     if get_object_or_404(Contact, pk=pk).name == str(request.user):
         form = ContactLoginForm(request.POST or None)
         contact = get_object_or_404(Contact, pk=pk)
         form.fields['title'].widget = forms.TextInput(attrs={'value': contact.title})
-        form.fields['text'].widget = forms.TextInput(attrs={'value': contact.text})
+        form.fields['text'].widget = forms.Textarea(attrs={'value': contact.text})
         if request.method == 'POST' and form.is_valid():
             contact.title=form.cleaned_data['title']
             contact.text=form.cleaned_data['text']
