@@ -7,7 +7,12 @@ class Contact(models.Model):
     email = models.TextField(null=True, max_length=254)
     title = models.TextField(max_length=200)
     text = models.TextField()
-    timestamp = models.DateTimeField(default=timezone.now)
+    create_date = models.DateTimeField(default=timezone.now)
+    update_date = models.DateTimeField(default=timezone.now)
+
+    def update(self):
+        self.update_date = timezone.now()
+        self.save()
 
     def __str__(self):
         return self.title

@@ -7,10 +7,8 @@ from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 def Blog(request):
-    if request.user.id == None:
-        return render(request, 'blog/blog.html')
-    else:
-        return render(request, 'blog/blogLogin.html', {'username': request.user})
+    postlists = Posts.objects.order_by('created_date')[:10]
+    return render(request, 'blog/blog.html', {'username': request.user, 'postlists': postlists})
 
 @login_required
 def Post(request):

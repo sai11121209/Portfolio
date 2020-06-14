@@ -1,8 +1,12 @@
+from django import forms
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from .forms import UsernameChangeForm
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.models import User
 import sys
 sys.path.append('../')
 from blog.models import Posts
@@ -51,3 +55,17 @@ def MyPage(request):
     contactlists = Contact.objects.filter(name=request.user)
     print(postlists)
     return render(request, 'registration/mypage.html', {'username': request.user, 'postlists': postlists, 'contactlists': contactlists})
+
+def UsernameChange(request, pk):
+    form = UsernameChangeForm(request.POST or None)
+    user = get_object_or_404(User, pk=pk)
+    form.fields['first_name'].widget = forms.TextInput(attrs={'value': user.first_name})
+    form.fields['last_name'].widget = forms.TextInput(attrs={'value': user.last_name})
+    form.fields['email'].widget = forms.TextInput(attrs={'value': user.email})
+    if request.method == 'POST' and form.is_valid():
+        user.first_name = form.cleaned_data['first_name']
+        user.last_name = form.cleaned_data['last_name']
+        user.email = form.cleaned_data['email']
+        user.save()
+        return redirect('top')
+    return render(request, 'registration/username_change_form.html', {'username': request.user, 'form': form})

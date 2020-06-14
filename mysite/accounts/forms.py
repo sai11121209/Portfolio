@@ -1,6 +1,5 @@
 from django import forms
-from django.contrib.auth.models import UserManager
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 """
 class RegisterForm(forms.Form):
     username = forms.CharField(label='ユーザネーム', widget=forms.TextInput(attrs={'placeholder':'ユーザーネーム'}))
@@ -13,3 +12,8 @@ class LoginForm(forms.Form):
     email = forms.EmailField(label='メールアドレス', widget=forms.TextInput(attrs={'placeholder':'メールアドレス'}))
     password = forms.CharField(label='パスワード', widget=forms.PasswordInput(attrs={'placeholder':'パスワード'}))
 """
+
+class UsernameChangeForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email')

@@ -1,1 +1,17 @@
 {% extends 'portfolio/base.html' %}
+{% block user %}
+    {% if username.id != None %}
+        {% if username.is_superuser == 1%}
+            <a href="{% url 'mypage' %}"><p>ログイン中のユーザー:{{ username }}(admin)</p></a>
+        {% else %}
+            <a href="{% url 'mypage' %}"><p>ログイン中のユーザー:{{ username }}(user)</p></a>
+        {% endif %}
+        <a href="{% url 'logout' %}">ログアウト</a>
+    {% endif %}
+{% endblock  %}
+
+{% block attention %}
+    {% if username.id != None %}
+        <p>氏名・メールアドレスはアカウントの情報を使用するため省略。</p>
+    {% endif %}
+{% endblock attention %}

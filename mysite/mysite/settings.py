@@ -135,7 +135,10 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+IMAGE_ROOT = os.path.join(BASE_DIR, 'images')
+IMAGE_URL = '/images/'
+
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL='/accounts/login'     # ログイン
 LOGIN_REDIRECT_URL='/blog'
-LOGOUT_REDIRECT_URL='/accounts/login'
+LOGOUT_REDIRECT_URL='/top'

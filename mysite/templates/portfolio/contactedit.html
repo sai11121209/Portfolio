@@ -1,11 +1,11 @@
 {% extends 'registration/base.html' %}
 
 {% block title %}
-ContactDetail
+ContactEdit
 {% endblock title %}
 
 {% block titleh1 %}
-ContactDetail
+ContactEdit
 {% endblock titleh1 %}
 
 {% block headerli %}
@@ -22,13 +22,6 @@ ContactDetail
     <a href="{% url 'logout' %}">ログアウト</a>
 {% endblock  %}
 
-{% block contentsIn %}
-<h1>{{ contact }}</h1>
-<p>{{ contact.text }}</p>
-<p>{{ contact.timestamp }}</p>
-<form method="POST">
-    {% csrf_token %}
-    <button type="submit" name="edit" onclick="{% url 'portfolio:edit' pk=contact.pk %}">編集</button></a>
-    <button type="submit" name="del" onclick="return confirm("本当に削除しますか？");"">消去</button>
-</form>
-{% endblock contentsIn %}
+{% block buttontext %}
+完了
+{% endblock buttontext %}

@@ -9,10 +9,10 @@ class Posts(models.Model):
     tag = models.TextField()
     comment = models.TextField(null=True)
     created_date = models.DateTimeField(default=timezone.now)
-    Update_date = models.DateField(blank=True,null=True)
+    update_date = models.DateTimeField(default=timezone.now)
 
-    def publish(self):
-        self.published_date = timezone.now()
+    def update(self):
+        self.update_date = timezone.now()
         self.save()
 
     def __str__(self):

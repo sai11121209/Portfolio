@@ -21,7 +21,28 @@
                         <li><a href="../blog">>Blog</a></li>
                     </ul>
                 </div>
+                {% if username.id != None%}
+                    {% if username.is_superuser == 1%}
+                        <a href="{% url 'mypage' %}"><p>ログイン中のユーザー:{{ username }}(admin)</p></a>
+                    {% else %}
+                        <a href="{% url 'mypage' %}"><p>ログイン中のユーザー:{{ username }}(user)</p></a>
+                    {% endif %}
+                    <a href="{% url 'logout' %}">ログアウト</a>
+                {% endif %}
             </header>
+            <div id="contents">
+                <div class="contentsIn">
+                    {% block contents %}
+                    <h2>contents</h2>
+                    {% endblock contents %}
+                </div>
+            </div>
+            <footer>
+                <div class="footerIn">
+                    <small>©2020 Yuta Saikawa All Right Reserved.</small><br>
+                    <small><a href="{% url 'admin:index' %}">管理者サイト</a></small>
+                </div>
+            </footer>
         </div>
     </body>
     {% endblock %}

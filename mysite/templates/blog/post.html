@@ -15,8 +15,12 @@ Post
 {% endblock headerli %}
 
 {% block user %}
-<p>ログイン中のユーザー:{{ username }}</p>
-<a href="{% url 'logout' %}">ログアウト</a>
+    {% if username.is_superuser == 1%}
+        <a href="{% url 'mypage' %}"><p>ログイン中のユーザー:{{ username }}(admin)</p></a>
+    {% else %}
+        <a href="{% url 'mypage' %}"><p>ログイン中のユーザー:{{ username }}(user)</p></a>
+    {% endif %}
+    <a href="{% url 'logout' %}">ログアウト</a>
 {% endblock user %}
 
 {% block contents %}
