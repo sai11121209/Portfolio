@@ -129,8 +129,22 @@ header p {
 .postlists div{
     border-bottom: solid 1px #D3D3D3;
 }
-.postlists p{
+.postlists p {
     color: #999999;
+}
+.postlists a {
+    font-size: 20px;
+    font-weight: bold;
+}
+.contactlists div {
+    border-bottom: solid 1px #D3D3D3;
+}
+.contactlists p{
+    color: #999999;
+}
+.contactlists a {
+    font-size: 20px;
+    font-weight: bold;
 }
 .postdata {
     display: flex;

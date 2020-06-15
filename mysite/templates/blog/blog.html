@@ -11,9 +11,9 @@ Blog
 {% block user %}
     {% if username.id != None %}
         {% if username.is_superuser == 1%}
-            <a href="{% url 'mypage' %}"><p>ログイン中のユーザー:{{ username }}(admin)</p></a>
+            <a href="{% url 'mypage' %}"><p>ログイン中(admin)</p></a>
         {% else %}
-            <a href="{% url 'mypage' %}"><p>ログイン中のユーザー:{{ username }}(user)</p></a>
+            <a href="{% url 'mypage' %}"><p>ログイン中(user)</p></a>
         {% endif %}
         <a href="{% url 'logout' %}">ログアウト</a>
     {% endif %}
@@ -28,5 +28,8 @@ Blog
             <p>by {{postlist.author}}　{{postlist.update_date|timesince}}前
         </div>
     {% endfor %}
+    {% if postlists|length == 10 %}
+        <a href="{% url 'blog:list'%}">全て見る</a>
+    {% endif %}
 </div>
 {% endblock contents %}

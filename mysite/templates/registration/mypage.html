@@ -10,29 +10,39 @@ MyPage
 
 {% block headerli %}
     <li><a href="{% url 'top' %}">>Top</a></li>
-    <li><a href="{% url 'blog:post' %}">>Post</a></li>
+    <li><a href="{% url 'blog:home' %}">>Blog</a></li>
     <li><a href="{% url 'portfolio:home' %}">>Portfolio</a></li>
 {% endblock headerli %}
 
 {% block user %}
     {% if username.is_superuser == 1%}
-        <p>ログイン中のユーザー:{{ username }}(admin)</p>
+        <p>ログイン中(admin)</p>
     {% else %}
-        <p>ログイン中のユーザー:{{ username }}(user)</p>
+        <p>ログイン中(user)</p>
     {% endif %}
     <a href="{% url 'logout' %}">ログアウト</a>
 {% endblock user %}
 
 {% block contentsIn %}
     <h1>Blog投稿一覧</h1>
-    {% for postlist in postlists %}
-        <a href="{% url 'blog:detail' pk=postlist.pk %}">{{ postlist }}</a><br>
-    {% endfor %}
+    <div class="postlists">
+        {% for postlist in postlists %}
+            <div>
+                <a href="{% url 'blog:detail' pk=postlist.pk %}">{{postlist}}</a>
+                <p>作成日時{{postlist.created_date}} 最終更新日時{{postlist.update_date}}
+            </div>
+        {% endfor %}
+    </div>
     <h1>Portfolio連絡履歴</h1>
-    {% for contactlist in contactlists %}
-        <a href="{% url 'portfolio:detail' pk=contactlist.pk %}">{{ contactlist }}</a><br>
-    {% endfor %}
+    <div class="contactlists">
+        {% for contactlist in contactlists %}
+            <div>
+                <a href="{% url 'portfolio:detail' pk=contactlist.pk %}">{{ contactlist }}</a><br>
+                <p>連絡日時{{contactlist.created_date}}　最終更新日時{{contactlist.update_date}}
+            </div>
+        {% endfor %}
+    </div>
     <h1>アカウント管理</h1>
-    <a href="{% url 'username_change' pk=username.pk %}">パスワード変更</a>
+    <a href="{% url 'username_change' pk=username.pk %}">登録情報変更</a><br>
     <a href="{% url 'password_change' %}">パスワード変更</a>
 {% endblock contentsIn %}

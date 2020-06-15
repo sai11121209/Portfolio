@@ -16,15 +16,20 @@ PostList
 
 {% block user %}
     {% if username.is_superuser == 1%}
-        <a href="{% url 'mypage' %}"><p>ログイン中のユーザー:{{ username }}(admin)</p></a>
+        <a href="{% url 'mypage' %}"><p>ログイン中(admin)</p></a>
     {% else %}
-        <a href="{% url 'mypage' %}"><p>ログイン中のユーザー:{{ username }}(user)</p></a>
+        <a href="{% url 'mypage' %}"><p>ログイン中(user)</p></a>
     {% endif %}
     <a href="{% url 'logout' %}">ログアウト</a>
 {% endblock  %}
 
 {% block contents %}
-{% for postlist in postlists %}
-    <a href="{% url 'blog:detail' pk=postlist.pk %}">{{ postlist }}</a><br>
-{% endfor %}
+<div class="postlists">
+    {% for postlist in postlists %}
+        <div>
+            <a href="{% url 'blog:detail' pk=postlist.pk %}">{{postlist}}</a>
+            <p>by {{postlist.author}}　{{postlist.update_date|timesince}}前
+        </div>
+    {% endfor %}
+</div>
 {% endblock contents %}
