@@ -56,7 +56,7 @@ def MyPage(request):
     print(postlists)
     return render(request, 'registration/mypage.html', {'username': request.user, 'postlists': postlists, 'contactlists': contactlists})
 
-def UsernameChange(request, pk):
+def UserInformationChange(request, pk):
     form = UsernameChangeForm(request.POST or None)
     if get_object_or_404(User, pk=pk).username == str(request.user):
         user = get_object_or_404(User, pk=pk)
@@ -68,6 +68,6 @@ def UsernameChange(request, pk):
             user.last_name = form.cleaned_data['last_name']
             user.email = form.cleaned_data['email']
             user.save()
-            return redirect('top')
-        return render(request, 'registration/username_change_form.html', {'username': request.user, 'form': form})
+            return redirect('mypage')
+        return render(request, 'registration/information_change_form.html', {'username': request.user, 'form': form})
     return redirect('mypage')

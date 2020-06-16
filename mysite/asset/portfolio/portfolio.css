@@ -1,6 +1,44 @@
 html {
     overflow-y: scroll;
 }
+@media screen and (min-width:601px){
+    .work-img {
+        height: 90vh;
+        /* 画像ファイルの指定 */
+        background-image: url(./imgs/pythoncode.jpg);
+      /* 画像を常に天地左右の中央に配置 */
+        background-position: center center;
+      /* 画像をタイル状に繰り返し表示しない */
+        background-repeat: no-repeat;
+      /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+        /*background-attachment: fixed;*/
+      /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+        background-size: cover;
+      /* 背景画像が読み込まれる前に表示される背景のカラー */
+        background-color: #464646;
+        position: relative;
+    }
+}
+@media screen and (max-width:600px){
+    .work-img {
+        height: 90vh;
+        width:100%;
+        max-width: 100%;
+        /* 画像ファイルの指定 */
+        background-image: url(./imgs/pythoncode_s.jpg);
+      /* 画像を常に天地左右の中央に配置 */
+        background-position: center center;
+      /* 画像をタイル状に繰り返し表示しない */
+        background-repeat: no-repeat;
+      /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+        /*background-attachment: fixed;*/
+      /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+        background-size: cover;
+      /* 背景画像が読み込まれる前に表示される背景のカラー */
+        background-color: #464646;
+        position: relative;
+    }
+}
 body {
     font-family: 'Lato',
     'Noto Sans JP',
@@ -66,6 +104,11 @@ header {
 header h1 {
     font-family: 'Noto Sans JP';
     padding-left: 50px;
+}
+header p {
+    font-family: 'Noto Sans JP';
+    padding-right: 50px;
+    padding-top: 20px;
 }
 .headerIn {
     z-index: 1;
@@ -177,7 +220,7 @@ header h1 {
   /* 画像をタイル状に繰り返し表示しない */
     background-repeat: no-repeat;
   /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
-    background-attachment: fixed;
+    /*background-attachment: fixed;*/
   /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
     background-size: cover;
   /* 背景画像が読み込まれる前に表示される背景のカラー */
@@ -238,22 +281,6 @@ header h1 {
     border-top: 3px solid #000;
     flex-grow: 1;
     margin: 0 10px;
-}
-.work-img {
-    height: 90vh;
-    /* 画像ファイルの指定 */
-    background-image: url(./imgs/pythoncode.jpg);
-  /* 画像を常に天地左右の中央に配置 */
-    background-position: center center;
-  /* 画像をタイル状に繰り返し表示しない */
-    background-repeat: no-repeat;
-  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
-    background-attachment: fixed;
-  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
-    background-size: cover;
-  /* 背景画像が読み込まれる前に表示される背景のカラー */
-    background-color: #464646;
-    position: relative;
 }
 .work-img div {
     border: 4px solid #464646;

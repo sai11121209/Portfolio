@@ -12,7 +12,6 @@ body {
 }
 h2 {
     font-size: 50px;
-    position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
@@ -20,22 +19,6 @@ h2 {
     margin: auto;
     width: 80%;
     height: 3.2rem;
-}
-h3 {
-    display: flex;
-    align-items: center;
-}
-h3::before,
-h3::after {
-    border-top: 1px solid;
-    content: "";
-    flex-grow: 1;
-}
-h3::before {
-    margin-right: 1rem;
-}
-h3::after {
-    margin-left: 1rem;
 }
 header a {
     color: #FFF;
@@ -63,6 +46,11 @@ header {
 header h1 {
     font-family: 'Noto Sans JP';
     padding-left: 50px;
+}
+header p {
+    font-family: 'Noto Sans JP';
+    padding-right: 50px;
+    padding-top: 20px;
 }
 .headerIn {
     z-index: 1;
@@ -112,22 +100,17 @@ header h1 {
     margin-top: 100px;
     background-color: #F5F5F5;
 }
-.contentsWall {
-    background-color: #FFF;
-    max-width: 998px;
-    margin: 30px auto;
-    border: 50px;
-}
 .contentsIn {
-    background-color: #FFF;
-    max-width: 998px;
-    height: 1000px;
-    margin: 0 auto;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
-.contentsIn a {
-    color: #222222;
-    text-decoration: none;
+.contentsTop {
+    padding-top: 40vh;
+    padding-bottom: 40vh;
+    text-align:center;
+}
+.comment {
+    text-align:center;
 }
 footer {
     text-align: center;
