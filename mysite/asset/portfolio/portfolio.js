@@ -20,4 +20,16 @@ $(function(){
 		$('body,html').animate({scrollTop:position}, speed, 'swing');
 		return false;
 	});
+	$('#openModal1').click(function(){
+		$('#modalArea1').fadeIn();
+	});
+	$('#closeModal1, #modalBg1').click(function(){
+		$('#modalArea1').fadeOut();
+	});
+	$('#openModal2').click(function(){
+		$('#modalArea2').fadeIn();
+	});
+	$('#closeModal2, #modalBg2').click(function(){
+		$('#modalArea2').fadeOut();
+	});
 });

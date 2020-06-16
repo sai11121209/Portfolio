@@ -4,6 +4,8 @@ from .forms import ContactForm, ContactLoginForm
 from .models import Contact
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
+from markdownx.utils import markdownify
+from django.utils.safestring import mark_safe
 # Create your views here.
 
 def Portfolio(request):
