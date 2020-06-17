@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')), # [追加]
     path('accounts/', include('django.contrib.auth.urls')),
-    path('top/', views.top, name='top'),
+    path('', views.top, name='top'),
     path('', include('portfolio.urls')),
     path('', include('blog.urls')),
     path('markdownx/', include('markdownx.urls')),

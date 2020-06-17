@@ -1,4 +1,6 @@
 $(function(){
+	var scrollPos;//topからのスクロール位置
+	scrollPos = $(window).scrollTop();
 	// リストを非表示
 	$('.headerIn ul li').hide();
 	// 繰り返し処理
@@ -22,14 +24,22 @@ $(function(){
 	});
 	$('#openModal1').click(function(){
 		$('#modalArea1').fadeIn();
+		scrollPos = $(window).scrollTop();
+		$('body').addClass('fixed').css({ top: -scrollPos });
 	});
 	$('#closeModal1, #modalBg1').click(function(){
+		$('body').removeClass('fixed').css({ top: $(window).scrollTop(scrollPos) });
 		$('#modalArea1').fadeOut();
+		return false;
 	});
 	$('#openModal2').click(function(){
 		$('#modalArea2').fadeIn();
+		scrollPos = $(window).scrollTop();
+		$('body').addClass('fixed').css({ top: -scrollPos });
 	});
 	$('#closeModal2, #modalBg2').click(function(){
+		$('body').removeClass('fixed').css({ top: $(window).scrollTop(scrollPos) });
 		$('#modalArea2').fadeOut();
+		return false;
 	});
 });

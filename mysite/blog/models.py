@@ -10,7 +10,6 @@ class Posts(models.Model):
     title = models.TextField(max_length=500)
     text = MarkdownxField('text', help_text='To Write with Markdown')
     tag = models.TextField()
-    comment = models.TextField(null=True)
     created_date = models.DateTimeField(default=timezone.now)
     update_date = models.DateTimeField(default=timezone.now)
 
