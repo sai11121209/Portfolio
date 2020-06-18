@@ -27,13 +27,13 @@ def Portfolio(request):
     return render(request, 'portfolio/portfolio.html', para)
 
 @login_required
-def ContactDetail(request, pk):
+def ContactDetail(request, pk, username):
     if get_object_or_404(Contact, pk=pk).name == str(request.user):
         contact = get_object_or_404(Contact, pk=pk)
         if request.method == 'POST':
             if 'edit' in request.POST:
                 print('a')
-                return redirect('portfolio:edit', pk=pk)
+                return redirect('portfolio:edit', pk=pk, username=username)
             if 'del' in request.POST:
                 Contact.objects.filter(pk=pk).delete()
                 return redirect('mypage')
@@ -42,7 +42,7 @@ def ContactDetail(request, pk):
     return redirect('portfolio:home')
 
 @login_required
-def ContactEdit(request, pk):
+def ContactEdit(request, pk, username):
     if get_object_or_404(Contact, pk=pk).name == str(request.user):
         form = ContactLoginForm(request.POST or None)
         contact = get_object_or_404(Contact, pk=pk)

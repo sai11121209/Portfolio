@@ -191,6 +191,13 @@
     background-color: rgba(30,30,30,0.7);
 }
 .modalWrapper {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.modalWrapper::-webkit-scrollbar {
+    display:none;
+}
+.modalWrapper {
     position: absolute;
     top: 50%;
     left: 50%;

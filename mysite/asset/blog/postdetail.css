@@ -1,0 +1,29 @@
+form {
+    text-align: center;
+}
+.postdata {
+    width: 70%;
+    margin: 0 auto;
+}
+.postdata a {
+    margin: 0;
+}
+.postdata p {
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+.postcontents h1 {
+    font-size: 40px;
+}
+.postcontents ul {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+.postcontents li {
+    margin-left: 10px;
+    background: #DCDCDC;
+    border-radius: 3px;
+    padding: 4px;
+}

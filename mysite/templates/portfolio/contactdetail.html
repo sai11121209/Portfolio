@@ -28,7 +28,7 @@ ContactDetail
 <p>{{ contact.timestamp }}</p>
 <form method="POST">
     {% csrf_token %}
-    <button type="submit" name="edit" onclick="{% url 'portfolio:edit' pk=contact.pk %}">編集</button></a>
+    <button type="submit" name="edit" onclick="{% url 'portfolio:edit' pk=contact.pk username=contact.name %}">編集</button></a>
     <button type="submit" name="del" onclick="return confirm("本当に削除しますか？");"">消去</button>
 </form>
 {% endblock contentsIn %}

@@ -1,12 +1,35 @@
 $(function(){
 	var scrollPos;//topからのスクロール位置
 	scrollPos = $(window).scrollTop();
+	$('.headerTitle').hide();
+	// 繰り返し処理
+	$('.headerTitle').each(function(i) {
+	    // 遅延させてフェードイン
+		$(this).fadeIn(1500);
+	});
 	// リストを非表示
 	$('.headerNav ul li').hide();
 	// 繰り返し処理
 	$('.headerNav ul li').each(function(i) {
 	    // 遅延させてフェードイン
 		$(this).fadeIn(1500);
+	});
+	$('.headerUser ul li').hide();
+	// 繰り返し処理
+	$('.headerUser ul li').each(function(i) {
+	    // 遅延させてフェードイン
+		$(this).fadeIn(1500);
+	});
+	$(window).on('load', function() {
+		var url = $(location).attr('href');
+		if(url.indexOf("#") != -1){
+			var anchor = url.split("#");
+			var target = $('#' + anchor[anchor.length - 1]);
+			if(target.length){
+				var pos = Math.floor(target.offset().top) - 100;
+				$("html, body").animate({scrollTop:pos}, 1);
+			}
+		}
 	});
 	// #で始まるアンカーをクリックした場合に処理
 	$('a[href^=#]').click(function() {

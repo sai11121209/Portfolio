@@ -2,13 +2,15 @@ html {
     overflow-y: scroll;
 }
 body {
-    font-family: 'Lato',
-    'Noto Sans JP',
-    'ヒラギノ角ゴ ProN',
-    'Hiragino Kaku Gothic ProN',
-    'メイリオ',
-    Meiryo;
+    font-family: -apple-system,
+    "Segoe UI",
+    "Helvetica Neue",
+    "Hiragino Kaku Gothic ProN",
+    メイリオ,
+    meiryo,
+    sans-serif;
     margin: 0;
+    scroll-padding-top: 100px;
 }
 ul li {
     list-style: none;
@@ -42,9 +44,9 @@ header h1 {
     font-family: 'Noto Sans JP';
 }
 #top {
-    color: #000; /*文字色*/
     display: flex;
     flex-direction: column;
+    color: #000;
 }
 .header {
     z-index: 1;
@@ -145,6 +147,12 @@ header h1 {
 }
 .headerUser ul li ul li p {
     margin: 0;
+}
+#contents {
+    background-color: #F5F5F5;
+}
+#contents a:hover {
+    text-decoration: underline;
 }
 footer {
     text-align: center;

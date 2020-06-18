@@ -9,7 +9,7 @@ class Posts(models.Model):
     author = models.ForeignKey('auth.user', on_delete=models.CASCADE)
     title = models.TextField(max_length=500)
     text = MarkdownxField('text', help_text='To Write with Markdown')
-    tag = models.TextField()
+    tags = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     update_date = models.DateTimeField(default=timezone.now)
 
@@ -19,6 +19,9 @@ class Posts(models.Model):
 
     def markdown(self): #テンプレートでmarkdownを適応するため
         return mark_safe(markdownify(self.text))
+
+    def tag(self):
+        return self.tags.split()
 
     def __str__(self):
         return self.title

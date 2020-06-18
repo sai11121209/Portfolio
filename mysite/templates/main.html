@@ -34,9 +34,15 @@
                             </li>
                             <li><a href="{% url 'portfolio:home' %}">⌵ Portfolio<span></span></a>
                                 <ul>
+                                {% if request.path == '/portfolio/' %}
+                                    <li><a href="#top"><p>>Home</p></a></li>
+                                    <li><a href="#work"><p>>work</p></a></li>
+                                    <li><a href="#contact"><p>>contact</p></a></li>
+                                {% else %}
                                     <li><a href="{% url 'portfolio:home' %}#top"><p>>Home</p></a></li>
                                     <li><a href="{% url 'portfolio:home' %}#work"><p>>work</p></a></li>
                                     <li><a href="{% url 'portfolio:home' %}#contact"><p>>contact</p></a></li>
+                                {% endif %}
                                 </ul>
                             </li>
                         </ul>

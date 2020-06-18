@@ -1,4 +1,10 @@
 {% extends 'blog/base.html' %}
+{% load static %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/blog.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/postdetail.css' %}">
+{% endblock stylesheet %}
 
 {% block title %}
 PostDetail
@@ -9,17 +15,25 @@ PostDetail
 {% endblock titleh1 %}
 
 {% block contentsIn %}
-<div class="postdata">
-    <a>{{ post.author }}</a>
-    <p>Last Update:{{ post.update_date }}</p>
+<div class="post">
+    <div class="postdata">
+        <a>author:{{ post.author }}</a>
+        <p>Last Update:{{ post.update_date }}</p>
+    </div>
+    <div class="postcontents">
+        <h1>{{ post }}</h1>
+        <ul>
+            {% for tag in post.tag %}
+                <li><a>{{tag}}</a></li>
+            {% endfor %}
+        </ul>
+        <p>{{ post.markdown }}</p>
+    </div>
+    {% if post.author == username %}
+        <form method="POST" novalidate>
+                {% csrf_token %}
+            <button type="submit">編集</button>
+        </form>
+    {% endif %}
 </div>
-<h1>{{ post }}</h1>
-<p>{{ post.markdown }}</p>
-
-{% if post.author == username %}
-    <form method="POST" novalidate>
-            {% csrf_token %}
-        <button type="submit">編集</button>
-    </form>
-{% endif %}
 {% endblock contentsIn %}
