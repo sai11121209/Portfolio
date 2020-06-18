@@ -23,7 +23,7 @@
                     <div class="headerNav">
                         <ul>
                             <li><a href="{% url 'top' %}">Top</a></li>
-                            <li><a href="{% url 'blog:home' %}">Blog<span></span></a>
+                            <li><a href="{% url 'blog:home' %}">⌵ Blog<span></span></a>
                                 <ul>
                                     <li><a href="{% url 'blog:home' %}"><p>>Home</p></a></li>
                                     {% if username.id != None %}
@@ -32,7 +32,7 @@
                                     <li><a href="{% url 'blog:list' %}"><p>>PostList</p></a></li>
                                 </ul>
                             </li>
-                            <li><a href="{% url 'portfolio:home' %}">Portfolio<span></span></a>
+                            <li><a href="{% url 'portfolio:home' %}">⌵ Portfolio<span></span></a>
                                 <ul>
                                     <li><a href="{% url 'portfolio:home' %}#top"><p>>Home</p></a></li>
                                     <li><a href="{% url 'portfolio:home' %}#work"><p>>work</p></a></li>
@@ -42,40 +42,54 @@
                         </ul>
                     </div>
                     <div class="headerUser">
-                    {% if username.id != None %}
-                        {% if username.is_superuser == 1%}
-                        <ul>
-                            <li>
-                                <a href="">ログイン中(admin)<span></span></a>
-                                <ul>
-                                    <li><a href="{% url 'mypage' %}">>マイページ</a></li>
-                                    <li><a href="{% url 'logout' %}"><p>>ログアウト</p></a></li>
-                                </ul>
-                            </li>
-                        </ul>
+                    {% block headerUser %}
+                        {% if username.id != None %}
+                            {% if username.is_superuser == 1%}
+                            <ul>
+                                <li>
+                                    <a href="">⌵ ログイン中(admin)<span></span></a>
+                                    <ul>
+                                        <li><a href="{% url 'mypage' %}">>MyPage</a></li>
+                                        <li><a href="{% url 'logout' %}"><p>>Logout</p></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            {% else %}
+                            <ul>
+                                <li>
+                                    <a href="">⌵ ログイン中(user)<span></span></a>
+                                    <ul>
+                                        <li><a href="{% url 'mypage' %}">>MyPage</a></li>
+                                        <li><a href="{% url 'logout' %}"><p>>Logout</p></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            {% endif %}
                         {% else %}
-                            <a href="{% url 'mypage' %}">ログイン中(user)<span></span></a>
+                            <ul>
+                                <li><a href="">⌵ Account<span></span></a>
+                                    <ul>
+                                        <li><a href="{% url 'signup' %}">>Signup</a></li>
+                                        <li><a href="{% url 'login' %}"><p>>Login</p></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
                         {% endif %}
-                    {% else %}
-                        <ul>
-                            <li><a href="">Account<span></span></a>
-                                <ul>
-                                    <li><a href="{% url 'signup' %}">>Signup</a></li>
-                                    <li><a href="{% url 'login' %}"><p>>Login</p></a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    {% endif %}
+                    {% endblock headerUser %}
                     </div>
                 </div>
             </header>
-            {% block contents %}
-            {% endblock contents %}
+            <div id="contents">
+                {% block contents %}
+                {% endblock contents %}
+            </div>
             <footer>
+            {% block footer %}
                 <div class="footerIn">
                     <small>©2020 Yuta Saikawa All Right Reserved.</small><br>
                     <small><a href="{% url 'admin:index' %}">管理者サイト</a></small>
                 </div>
+            {% endblock footer %}
             </footer>
         </div>
     </body>

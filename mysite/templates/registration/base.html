@@ -5,17 +5,15 @@
 {% endblock stylesheet %}
 
 {% block contents %}
-    <div id="contents">
-        <div class="contentsWall">
-            <div class="contentsIn">
-                {% block contentsIn %}
-                    <form method="POST" novalidate>
-                            {% csrf_token %}
-                            {{ form.as_p}}
-                            <button type="submit">{% block buttontext %}{% endblock buttontext %}</button>
-                        </form>
-                {% endblock contentsIn %}
-            </div>
+    <div class="contentsWall">
+        <div class="contentsIn">
+            {% block contentsIn %}
+                <form method="POST" novalidate>
+                        {% csrf_token %}
+                        {{ form.as_p}}
+                        <button type="submit">{% block buttontext %}{% endblock buttontext %}</button>
+                    </form>
+            {% endblock contentsIn %}
         </div>
     </div>
 {% endblock contents %}

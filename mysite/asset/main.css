@@ -19,7 +19,7 @@ button {
     font-size: 20px;
     font-weight: bold;
     border-radius: 5px;
-    padding: 0.6em;
+    padding: 0.4em;
     background-color: #FFF;
     filter: drop-shadow(0px 2px 3px #666);
 }
@@ -31,22 +31,6 @@ a {
 }
 h2 {
     font-size: 50px;
-}
-h3 {
-    display: flex;
-    align-items: center;
-}
-h3::before,
-h3::after {
-    border-top: 1px solid;
-    content: "";
-    flex-grow: 1;
-}
-h3::before {
-    margin-right: 1rem;
-}
-h3::after {
-    margin-left: 1rem;
 }
 header a {
     color: #FFF;
@@ -97,13 +81,13 @@ header h1 {
     position: relative;
     text-align: center;
 }
-.headerNav a {
+.header a {
     color: #FFF;
     position: relative;
     display: inline-block;
     text-decoration: none;
 }
-.headerNav a::after {
+.header a::after {
     position: absolute;
     bottom: -4px;
     left: 0;
@@ -115,7 +99,7 @@ header h1 {
     transform-origin: left top;
     transition: transform .3s;
 }
-.headerNav a:hover::after {
+.header a:hover::after {
     transform: scale(1, 1);
 }
 .headerNav ul li ul {
@@ -144,9 +128,6 @@ header h1 {
     height: 100%;
     font-size: 17px;
 }
-.headerUser ul {
-    display: flex;
-}
 .headerUser ul li ul {
     display: none;
 }
@@ -158,6 +139,13 @@ header h1 {
     padding: 20px;
     margin-left: -20px;
 }
+.headerUser ul li ul li {
+    margin-bottom: 10px;
+    text-align: start;
+}
+.headerUser ul li ul li p {
+    margin: 0;
+}
 footer {
     text-align: center;
     top: 500px
@@ -168,4 +156,7 @@ footer {
     border-top: 2px solid #999999;
     color: #FFF;
     height: 50px;
+}
+.footerIn a {
+    color: #FFF;
 }

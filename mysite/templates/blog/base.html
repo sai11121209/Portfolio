@@ -5,13 +5,11 @@
 {% endblock stylesheet %}
 
 {% block contents %}
-    <div id="contents">
-        <div class="contentsWall">
-            <div class="contentsIn">
-                {% block contentsIn %}
-                    <h2>contents</h2>
-                {% endblock contentsIn %}
-            </div>
+    <div class="contentsWall">
+        <div class="contentsIn">
+            {% block contentsIn %}
+                <h2>contents</h2>
+            {% endblock contentsIn %}
         </div>
     </div>
 {% endblock contents %}
