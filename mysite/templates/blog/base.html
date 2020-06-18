@@ -1,52 +1,17 @@
-<!DOCTYPE html>
+{% extends 'main.html' %}
 {% load static %}
-<html lang="ja">
-    <head>
-    {% block extrahead %}
-        <meta http-equiv="content-type" charset="utf-8">
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="{% static 'blog/blog.css' %}">
-        <script src="{% static 'mysite.js' %}"></script>
-        <title>{% block title %}blog{% endblock %}</title>
-    </head>
-    <body>
-        <div id="blog-top">
-            <header>
-                <h1>{% block titleh1 %}Blog{% endblock %}</h1>
-                <div class="headerIn">
-                    <ul>
-                        {% block headerli %}
-                        <li><a href="{% url 'top' %}">>Top</a></li>
-                        <li><a href="{% url 'blog:post' %}">>Post</a></li>
-                        {% if username.id == None  %}
-                            <li><a href="{% url 'signup' %}">>Signup</a></li>
-                            <li><a href="{% url 'login' %}">>Login</a></li>
-                        {% endif %}
-                        <li><a href="{% url 'portfolio:home' %}">>Portfolio</a></li>
-                        {% endblock headerli %}
-                    </ul>
-                </div>
-                {% block user %}
-                {% endblock user %}
-            </header>
-            <div id="contents">
-                <div class="contentsWall">
-                    <div class="contentsIn">
-                        {% block contents %}
-                        <h2>contents</h2>
-                        {% endblock contents %}
-                    </div>
-                </div>
+{% block stylesheet %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/blog.css' %}">
+{% endblock stylesheet %}
+
+{% block contents %}
+    <div id="contents">
+        <div class="contentsWall">
+            <div class="contentsIn">
+                {% block contentsIn %}
+                    <h2>contents</h2>
+                {% endblock contentsIn %}
             </div>
-            <footer>
-                <div class="footerIn">
-                    <small>©2020 Yuta Saikawa All Right Reserved.</small><br>
-                    <small><a href="{% url 'admin:index' %}">管理者サイト</a></small>
-                </div>
-            </footer>
         </div>
-    </body>
-    {% endblock %}
-</html>
+    </div>
+{% endblock contents %}

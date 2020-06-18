@@ -1,56 +1,26 @@
-<!DOCTYPE html>
+{% extends 'main.html' %}
 {% load static %}
-<html lang="ja">
-    <head>
-    {% block extrahead %}
-        <meta http-equiv="content-type" charset="utf-8">
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="{% static 'top/top.css' %}">
-        <script src="{% static 'mysite.js' %}"></script>
-        <title>Top</title>
-    </head>
-    <body>
-        <div id="top">
-            <header>
-                <h1>Top</h1>
-                <div class="headerIn">
-                    <ul>
-                        <li><a href="../portfolio">>Portfolio</a></li>
-                        <li><a href="../blog">>Blog</a></li>
-                        {% if username.id == None  %}
-                            <li><a href="{% url 'signup' %}">>Signup</a></li>
-                            <li><a href="{% url 'login' %}">>Login</a></li>
-                        {% endif %}
-                    </ul>
-                </div>
-                {% if username.id != None%}
-                    {% if username.is_superuser == 1%}
-                        <a href="{% url 'mypage' %}"><p>ログイン中(admin)</p></a>
-                    {% else %}
-                        <a href="{% url 'mypage' %}"><p>ログイン中(user)</p></a>
-                    {% endif %}
-                    <a href="{% url 'logout' %}">ログアウト</a>
-                {% endif %}
-            </header>
-            <div id="contents">
-                <div class="conrentsIn">
-                    <div class="contentsTop">
-                        <h2>Welcome to My Portfolio</h2>
-                    </div>
-                    <div class="comment">
-                        <h3>当サイトは</h3>
-                    </div>
-                </div>
+{% block stylesheet %}
+    <link rel="stylesheet" type="text/css" href="{% static 'top/top.css' %}">
+{% endblock stylesheet %}
+
+{% block title %}
+Top
+{% endblock title %}
+
+{% block titleh1 %}
+Top
+{% endblock titleh1 %}
+
+{% block contents %}
+    <div id="contents">
+        <div class="conrentsIn">
+            <div class="contentsTop">
+                <h2>Welcome to My Portfolio</h2>
             </div>
-            <footer>
-                <div class="footerIn">
-                    <small>©2020 Yuta Saikawa All Right Reserved.</small><br>
-                    <small><a href="{% url 'admin:index' %}">管理者サイト</a></small>
-                </div>
-            </footer>
+            <div class="comment">
+                <h3>当サイトは</h3>
+            </div>
         </div>
-    </body>
-    {% endblock %}
-</html>
+    </div>
+{% endblock contents %}

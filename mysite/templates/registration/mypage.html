@@ -8,21 +8,6 @@ MyPage
 MyPage
 {% endblock titleh1 %}
 
-{% block headerli %}
-    <li><a href="{% url 'top' %}">>Top</a></li>
-    <li><a href="{% url 'blog:home' %}">>Blog</a></li>
-    <li><a href="{% url 'portfolio:home' %}">>Portfolio</a></li>
-{% endblock headerli %}
-
-{% block user %}
-    {% if username.is_superuser == 1%}
-        <p>ログイン中(admin)</p>
-    {% else %}
-        <p>ログイン中(user)</p>
-    {% endif %}
-    <a href="{% url 'logout' %}">ログアウト</a>
-{% endblock user %}
-
 {% block contentsIn %}
     <h1>Blog投稿一覧</h1>
     <div class="postlists">

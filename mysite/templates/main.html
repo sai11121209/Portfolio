@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+    <head>
+    {% block extrahead %}
+        <meta http-equiv="content-type" charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+        {% block stylesheet %}
+        {% endblock stylesheet %}
+        <script src="{% static 'mysite.js' %}"></script>
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        <div id="top">
+            <header>
+                <div class="header">
+                    <div class="headerTitle">
+                        <h1>{% block titleh1 %}{% endblock %}</h1>
+                    </div>
+                    <div class="headerNav">
+                        <ul>
+                            <li><a href="{% url 'top' %}">Top</a></li>
+                            <li><a href="{% url 'blog:home' %}">Blog<span></span></a>
+                                <ul>
+                                    <li><a href="{% url 'blog:home' %}"><p>>Home</p></a></li>
+                                    {% if username.id != None %}
+                                        <li><a href="{% url 'blog:post' %}"><p>>Post</p></a></li>
+                                    {% endif %}
+                                    <li><a href="{% url 'blog:list' %}"><p>>PostList</p></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="{% url 'portfolio:home' %}">Portfolio<span></span></a>
+                                <ul>
+                                    <li><a href="{% url 'portfolio:home' %}#top"><p>>Home</p></a></li>
+                                    <li><a href="{% url 'portfolio:home' %}#work"><p>>work</p></a></li>
+                                    <li><a href="{% url 'portfolio:home' %}#contact"><p>>contact</p></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="headerUser">
+                    {% if username.id != None %}
+                        {% if username.is_superuser == 1%}
+                        <ul>
+                            <li>
+                                <a href="">ログイン中(admin)<span></span></a>
+                                <ul>
+                                    <li><a href="{% url 'mypage' %}">>マイページ</a></li>
+                                    <li><a href="{% url 'logout' %}"><p>>ログアウト</p></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        {% else %}
+                            <a href="{% url 'mypage' %}">ログイン中(user)<span></span></a>
+                        {% endif %}
+                    {% else %}
+                        <ul>
+                            <li><a href="">Account<span></span></a>
+                                <ul>
+                                    <li><a href="{% url 'signup' %}">>Signup</a></li>
+                                    <li><a href="{% url 'login' %}"><p>>Login</p></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    {% endif %}
+                    </div>
+                </div>
+            </header>
+            {% block contents %}
+            {% endblock contents %}
+            <footer>
+                <div class="footerIn">
+                    <small>©2020 Yuta Saikawa All Right Reserved.</small><br>
+                    <small><a href="{% url 'admin:index' %}">管理者サイト</a></small>
+                </div>
+            </footer>
+        </div>
+    </body>
+    {% endblock %}
+</html>

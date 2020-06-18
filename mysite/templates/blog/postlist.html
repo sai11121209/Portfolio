@@ -8,22 +8,7 @@ PostList
 PostList
 {% endblock titleh1 %}
 
-{% block headerli %}
-    <li><a href="{% url 'top' %}">>Top</a></li>
-    <li><a href="{% url 'blog:post' %}">>Post</a></li>
-    <li><a href="{% url 'portfolio:home' %}">>Portfolio</a></li>
-{% endblock headerli %}
-
-{% block user %}
-    {% if username.is_superuser == 1%}
-        <a href="{% url 'mypage' %}"><p>ログイン中(admin)</p></a>
-    {% else %}
-        <a href="{% url 'mypage' %}"><p>ログイン中(user)</p></a>
-    {% endif %}
-    <a href="{% url 'logout' %}">ログアウト</a>
-{% endblock  %}
-
-{% block contents %}
+{% block contentsIn %}
 <div class="postlists">
     {% for postlist in postlists %}
         <div>
@@ -32,4 +17,4 @@ PostList
         </div>
     {% endfor %}
 </div>
-{% endblock contents %}
+{% endblock contentsIn %}
