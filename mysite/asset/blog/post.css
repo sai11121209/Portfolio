@@ -1,0 +1,45 @@
+body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+body::-webkit-scrollbar {
+    display:none;
+}
+#contents {
+    height: calc(100vh - 100px);
+}
+ul {
+    padding: 0;
+}
+form {
+    margin: 0 auto;
+    width: 99%;
+}
+form input {
+    border-radius: 5px;
+    border-width: 1px;
+    width: 100%;
+    filter: drop-shadow(0px 1px 1px #A9A9A9);
+    margin-bottom: 5px;
+}
+form textarea {
+    resize: none;
+    border-radius: 5px;
+    border-width: 1px;
+    width: 100%;
+    filter: drop-shadow(0px 1px 1px #A9A9A9);
+}
+button {
+    margin: 10px;
+    width: 10%;
+}
+form .title {
+    height: 5vh;
+    font-size: 24px;
+}
+form .tag {
+    height: 3vh;
+}
+form .text {
+    height: 66vh;
+}

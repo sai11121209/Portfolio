@@ -1,4 +1,10 @@
 {% extends 'blog/base.html' %}
+{% load static %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/blog.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/post.css' %}">
+{% endblock stylesheet %}
 
 {% block title %}
 Post
@@ -8,12 +14,15 @@ Post
 Post
 {% endblock titleh1 %}
 
-{% block contentsIn %}
+{% block contents %}
 <form method="POST" novalidate>
     <ul>
         {% csrf_token %}
         {{ form.as_ul}}
     </ul>
-    <button type="submit">送信</button>
+    <button type="submit">投稿</button>
 </form>
-{% endblock contentsIn %}
+{% endblock contents %}
+
+{% block footer %}
+{% endblock footer %}

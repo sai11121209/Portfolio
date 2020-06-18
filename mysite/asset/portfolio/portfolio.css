@@ -1,6 +1,22 @@
 #contents {
     color: #333333;
 }
+#contents h3 {
+    display: flex;
+    align-items: center;
+}
+#contents h3::before,
+#contents h3::after {
+    border-top: 1px solid;
+    content: "";
+    flex-grow: 1;
+}
+#contents h3::before {
+    margin-right: 1rem;
+}
+#contents h3::after {
+    margin-left: 1rem;
+}
 .contents-header {
     position: relative;
     color: #000;
