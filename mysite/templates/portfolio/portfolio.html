@@ -1,17 +1,176 @@
-{% extends 'portfolio/base.html' %}
-{% block user %}
-    {% if username.id != None %}
-        {% if username.is_superuser == 1%}
-            <a href="{% url 'mypage' %}"><p>ログイン中(admin)</p></a>
-        {% else %}
-            <a href="{% url 'mypage' %}"><p>ログイン中(user)</p></a>
-        {% endif %}
-        <a href="{% url 'logout' %}">ログアウト</a>
-    {% endif %}
-{% endblock  %}
-
-{% block attention %}
-    {% if username.id != None %}
-        <p>氏名・メールアドレスはアカウントの情報を使用するため省略。</p>
-    {% endif %}
-{% endblock attention %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+    <head>
+    {% block extrahead %}
+        <meta http-equiv="content-type" charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'portfolio/portfolio.css' %}">
+        <script src="{% static 'mysite.js' %}"></script>
+        <title>Portfolio</title>
+    </head>
+    <body>
+        <div id="top">
+            <header>
+                <div class="header">
+                    <div class="headerTitle">
+                        <a href="{% url 'portfolio:home' %}"><h1>Portfolio</h1></a>
+                    </div>
+                    <div class="headerNav">
+                        <ul>
+                            <li><a href="{% url 'top' %}">Top</a></li>
+                            <li><a href="{% url 'blog:home' %}">Blog<span></span></a>
+                                <ul>
+                                    <li><a href="{% url 'blog:home' %}"><p>>Home</p></a></li>
+                                    {% if username.id != None %}
+                                        <li><a href="{% url 'blog:post' %}"><p>>Post</p></a></li>
+                                    {% endif %}
+                                    <li><a href="{% url 'blog:list' %}"><p>>PostList</p></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="{% url 'portfolio:home' %}">Portfolio<span></span></a>
+                                <ul>
+                                    <li><a href="#top"><p>>Home</p></a></li>
+                                    <li><a href="#work"><p>>work</p></a></li>
+                                    <li><a href="#contact"><p>>contact</p></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="headerUser">
+                        {% if username.id != None %}
+                            {% if username.is_superuser == 1%}
+                            <ul>
+                                <li><a href="">ログイン中(admin)<span></span></a>
+                                    <ul>
+                                        <li><a href="">>マイページ</a></li>
+                                        <li><a href="{% url 'logout' %}"><p>>ログアウト</p></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            {% else %}
+                                <a href="{% url 'mypage' %}">ログイン中(user)<span></span></a>
+                            {% endif %}
+                        {% else %}
+                            <ul>
+                                <li><a href="">Account<span></span></a>
+                                    <ul>
+                                        <li><a href="{% url 'signup' %}">>Signup</a></li>
+                                        <li><a href="{% url 'login' %}"><p>>Login</p></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </header>
+            <div id="contents">
+                <div id="about">
+                    <section class="about-img">
+                        <div class="contents-header">
+                            <h2>About</h2>
+                            <a href="#my-info"><img class="icon-arrow" src="{% static 'portfolio/imgs/icon_arrow.png' %}"></a>
+                        </div>
+                    </section>
+                    <section id="my-info">
+                        <h3>自己紹介</h3>
+                        <div class="my-name">
+                            <img class="my-img" src="{% static 'portfolio/imgs/myimg.jpg' %}">
+                            <div>
+                                <h1>齋川 祐太</h1>
+                            </div>
+                        </div>
+                        <p>1999年12月9日生まれ工学院大学情報学部コンピュータ科学科で情報学について学び日々プログラミングを勉強しています。好きなことは旅行に行くことと音楽鑑賞です。</p>
+                        <h3>言語・フレームワーク</h3>
+                        <p>主な使用可能言語はPython, Java, C言語です。</p>
+                        <p>またこのポートフォリオや、ブログ等のWebサービスの制作を通してHTML, CSS, JavascriptまたPythonのフレームワークDjangoの学習をしています。</p>
+                        <h3>OS</h3>
+                        <p>Windows</p>
+                    </section>
+                </div>
+                <div id="work">
+                    <section class="work-img">
+                        <div class="contents-header">
+                            <h2>Work</h2>
+                            <a href="#my-works"><img class="icon-arrow" src="{% static 'portfolio/imgs/icon_arrow.png' %}"></a>
+                        </div>
+                    </section>
+                    <section id="my-works">
+                        <div class="my-work">
+                            <h3>天気予報アプリ</h3>
+                            <div>
+                                <img src="{% static 'portfolio/imgs/my-work1.png' %}">
+                            </div>
+                            <button id="openModal1" class="openModal">>Work Details</button>
+                            <section id="modalArea1" class="modalArea">
+                                <div id="modalBg1" class="modalBg"></div>
+                                <div class="modalWrapper">
+                                    <div class="modalContents">
+                                        <h1>Here are modal contents!</h1>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                        <a href="https://github.com/sai11121209/Weather_Checker"><p>GitHub</p></a>
+                                        <button id="closeModal1" class="closeModal">Close</button>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="my-work">
+                            <h3>東京ディズニーリゾート待ち時間解析アプリ</h3>
+                            <div>
+                                <img src="{% static 'portfolio/imgs/my-work2_1.png' %}">
+                                <img src="{% static 'portfolio/imgs/my-work2_2.png' %}">
+                            </div>
+                            <button id="openModal2" class="openModal">>Work Details</button>
+                            <section id="modalArea2" class="modalArea">
+                                <div id="modalBg2" class="modalBg"></div>
+                                <div class="modalWrapper">
+                                    <div class="modalContents">
+                                        <h1>東京ディズニーリゾート待ち時間解析アプリ</h1>
+                                        <img src="{% static 'portfolio/imgs/my-work2_3.png' %}">
+                                        <p>製作期間:約2週間</p>
+                                        <h4>matplotlibを用いることで待ち時間の推移を瞬時に可視化</h4>
+                                        <p>東京ディズニーリゾートのアトラクション待ち時間を出来る限り少なくすることで一日満喫したい!という意気込みで開発をしました。</p>
+                                        <a href="https://github.com/sai11121209/TDR_Wait_Time_Analysis_App"><p>GitHub</p></a>
+                                        <button id="closeModal2" class="closeModal">Close</button>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <h3>今後の取り組み</h3>
+                        <p>当サイト製作時に得られた知識を生かして以前作成した東京ディズニーリゾート待ち時間解析アプリをWebアプリに作り替えることで更なる理解を深めようと考えています。</p>
+                    </section>
+                </div>
+                <div id="contact">
+                    <section class="contact-img">
+                        <div class="contents-header">
+                            <h2>Contact</h2>
+                            <a href="#my-contact"><img class="icon-arrow" src="{% static 'portfolio/imgs/icon_arrow.png' %}"></a>
+                        </div>
+                    </section>
+                    <section id="my-contact">
+                        <h3>フォーム</h3>
+                            {% if username.id != None %}
+                                <p>氏名・メールアドレスはアカウントの情報を使用するため省略。</p>
+                            {% endif %}
+                        <form method="POST" novalidate>
+                            <ul>
+                                {% csrf_token %}
+                                {{ form.as_ul}}
+                            </ul>
+                            <button type="submit">送信</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+            <footer>
+                <div class="footerIn">
+                    <small>©2020 Yuta Saikawa All Right Reserved.</small><br>
+                    <small><a href="{% url 'admin:index' %}">管理者サイト</a></small>
+                </div>
+            </footer>
+        </div>
+    </body>
+    {% endblock %}
+</html>

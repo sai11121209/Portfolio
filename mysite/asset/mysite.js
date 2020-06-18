@@ -2,11 +2,11 @@ $(function(){
 	var scrollPos;//topからのスクロール位置
 	scrollPos = $(window).scrollTop();
 	// リストを非表示
-	$('.headerIn ul li').hide();
+	$('.headerNav ul li').hide();
 	// 繰り返し処理
-	$('.headerIn ul li').each(function(i) {
+	$('.headerNav ul li').each(function(i) {
 	    // 遅延させてフェードイン
-		$(this).delay(500 * i).fadeIn(1500);
+		$(this).fadeIn(1500);
 	});
 	// #で始まるアンカーをクリックした場合に処理
 	$('a[href^=#]').click(function() {
