@@ -50,17 +50,10 @@
 }
 .about-img {
     height: 90vh;
-    /* 画像ファイルの指定 */
     background-image: url(./imgs/about.jpg);
-  /* 画像を常に天地左右の中央に配置 */
     background-position: center center;
-  /* 画像をタイル状に繰り返し表示しない */
     background-repeat: no-repeat;
-  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
-    /*background-attachment: fixed;*/
-  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
     background-size: cover;
-  /* 背景画像が読み込まれる前に表示される背景のカラー */
     background-color: #464646;
     position: relative;
 }
@@ -106,8 +99,8 @@
 }
 #my-info h1::after {
     content: 'YUTA SAIKAWA';
-    font-size: 20px; /*2倍サイズ*/
-    display: block; /*改行するように*/
+    font-size: 20px;
+    display: block;
 }
 #work {
     text-align:center
@@ -157,17 +150,10 @@
     height: 90vh;
     width:100%;
     max-width: 100%;
-    /* 画像ファイルの指定 */
     background-image: url(./imgs/pythoncode_s.jpg);
-  /* 画像を常に天地左右の中央に配置 */
     background-position: center center;
-  /* 画像をタイル状に繰り返し表示しない */
     background-repeat: no-repeat;
-  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
-    /*background-attachment: fixed;*/
-  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
     background-size: cover;
-  /* 背景画像が読み込まれる前に表示される背景のカラー */
     background-color: #464646;
     position: relative;
 }
@@ -179,7 +165,7 @@
 .modalArea {
     display: none;
     position: fixed;
-    z-index: 10; /*サイトによってここの数値は調整 */
+    z-index: 10;
     top: 0;
     left: 0;
     width: 100%;
@@ -230,17 +216,10 @@
 }
 .contact-img {
     height: 90vh;
-    /* 画像ファイルの指定 */
     background-image: url(./imgs/pythoncode.jpg);
-  /* 画像を常に天地左右の中央に配置 */
     background-position: center center;
-  /* 画像をタイル状に繰り返し表示しない */
     background-repeat: no-repeat;
-  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
-    background-attachment: fixed;
-  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
     background-size: cover;
-  /* 背景画像が読み込まれる前に表示される背景のカラー */
     background-color: #464646;
     position: relative;
 }
