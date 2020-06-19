@@ -1,0 +1,41 @@
+.contentsWall {
+    background-color: #FFF;
+    max-width: 998px;
+    margin: 30px auto;
+    border: 50px;
+}
+.contentsIn {
+    padding: 30px;
+    text-align: center;
+}
+.contentsIn a {
+    color: #222222;
+    text-decoration: none;
+}
+.postlists div{
+    border-bottom: solid 1px #D3D3D3;
+}
+.postlists p {
+    color: #999999;
+}
+.postlists a {
+    font-size: 20px;
+    font-weight: bold;
+}
+.contactlists div {
+    border-bottom: solid 1px #D3D3D3;
+}
+.contactlists p{
+    color: #999999;
+}
+.contactlists a {
+    font-size: 20px;
+    font-weight: bold;
+}
+.postdata {
+    display: flex;
+    flex-direction: row;
+}
+.postdata p {
+    right: 0;
+}

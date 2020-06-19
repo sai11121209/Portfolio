@@ -1,0 +1,81 @@
+body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+body::-webkit-scrollbar {
+    display:none;
+}
+#contents {
+    height: calc(100vh - 100px);
+}
+ul {
+    padding: 0;
+}
+form {
+    margin: 0 auto;
+    width: 99%;
+}
+form input {
+    border-radius: 5px;
+    border-width: 1px;
+    width: 100%;
+    filter: drop-shadow(0px 1px 1px #A9A9A9);
+    margin-bottom: 5px;
+}
+form textarea {
+    resize: none;
+    border-radius: 5px;
+    border-width: 1px;
+    width: 100%;
+    filter: drop-shadow(0px 1px 1px #A9A9A9);
+}
+button {
+    margin: 10px;
+    width: 10%;
+}
+form .title {
+    height: 5vh;
+    font-size: 24px;
+}
+form .title:focus {
+    filter: drop-shadow(0px 2px 2px #00BFFF);
+}
+form .tag {
+    height: 3vh;
+}
+form .tag:focus {
+    filter: drop-shadow(0px 1px 21x #00BFFF);
+}
+form .text {
+    height: 66vh;
+}
+form .text:focus {
+    border: solid 1px #DCDCDC;
+    filter: drop-shadow(0px 1px 1px #A9A9A9);
+}
+.errorMessage {
+    z-index: 3;
+    position: absolute; /* 三角の位置を固定するために設定 */
+    width: 300px; /* 幅 */
+    margin: 0 auto 40px; /* 上 左右 下のマージン */
+    padding: 20px; /* ふきだし内の余白 */
+    background: #ddd; /* 背景色 */
+    text-align: center; /* テキストの揃え */
+    border-radius: 8px; /* <-追加 */
+}
+.errorMessage::before,
+.errorMessage::after { /* 三角 */
+    content: '';
+    border: 14px solid transparent;
+    position: absolute;
+    left: 50%;
+    margin-left: -14px;
+}
+.errorMessage::before { /* 線になる部分 */
+    border-top-color: #ddd; /* 吹き出しの線の色と同じ色 */
+    bottom: -28px;
+}
+.errorMessage::after { /* 地の部分 */
+    border-top-color: #fff; /* 吹き出しの背景色と同じ色 */
+    bottom: -27px;
+}
