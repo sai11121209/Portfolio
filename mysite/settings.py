@@ -21,11 +21,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-if not DEBUG:
-    SECRET_KEY = os.environ['SECRET_KEY']
-    import django_heroku #追加
-    django_heroku.settings(locals()) #追加
-
 ALLOWED_HOSTS = ['*']
 
 
@@ -135,7 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'asset'),
 )
@@ -159,6 +154,11 @@ CLOUDINARY_STORAGE = {
     'API_KEY': '162462496195924',
     'API_SECRET': 'cf3zOnJQRt-NSSqB2Obsx8KLEc8'
 }
+
+if not DEBUG:
+    SECRET_KEY = '-i0)@4@7py8o6=nk^w4t#16)_=2%!_iw*22l6atphw9qb_brv-'
+    import django_heroku #追加
+    django_heroku.settings(locals()) #追加
 
 try:
     from .local_settings import *
