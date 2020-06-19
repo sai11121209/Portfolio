@@ -37,9 +37,19 @@ form .title {
     height: 5vh;
     font-size: 24px;
 }
+form .title:focus {
+    filter: drop-shadow(0px 2px 2px #00BFFF);
+}
 form .tag {
     height: 3vh;
 }
+form .tag:focus {
+    filter: drop-shadow(0px 1px 21x #00BFFF);
+}
 form .text {
     height: 66vh;
+}
+form .text:focus {
+    border: solid 1px #DCDCDC;
+    filter: drop-shadow(0px 1px 1px #A9A9A9);
 }
