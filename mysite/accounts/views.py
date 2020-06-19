@@ -56,6 +56,7 @@ def MyPage(request):
     print(postlists)
     return render(request, 'registration/mypage.html', {'username': request.user, 'postlists': postlists, 'contactlists': contactlists})
 
+@login_required
 def UserInformationChange(request, username):
     form = UsernameChangeForm(request.POST or None)
     if get_object_or_404(User, username=username).username == str(request.user):

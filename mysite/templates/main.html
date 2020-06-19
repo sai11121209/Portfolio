@@ -27,14 +27,18 @@
                                 <ul>
                                     <li><a href="{% url 'blog:home' %}"><p>>Home</p></a></li>
                                     {% if username.id != None %}
-                                        <li><a href="{% url 'blog:post' %}"><p>>Post</p></a></li>
+                                        {% if '/post/' not in request.path%}
+                                            <li><a href="{% url 'blog:post' %}"><p>>Post</p></a></li>
+                                        {% endif %}
                                     {% endif %}
-                                    <li><a href="{% url 'blog:list' %}"><p>>PostList</p></a></li>
+                                    {% if '/postlist/' not in request.path%}
+                                        <li><a href="{% url 'blog:list' %}"><p>>PostList</p></a></li>
+                                    {% endif %}
                                 </ul>
                             </li>
                             <li><a href="{% url 'portfolio:home' %}">⌵ Portfolio<span></span></a>
                                 <ul>
-                                {% if request.path == '/portfolio/' %}
+                                {% if '/portfolio/' in request.path %}
                                     <li><a href="#top"><p>>Home</p></a></li>
                                     <li><a href="#work"><p>>work</p></a></li>
                                     <li><a href="#contact"><p>>contact</p></a></li>

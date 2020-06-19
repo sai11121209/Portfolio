@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django import forms
 from .forms import PostForm
 from .models import Posts
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
@@ -16,6 +17,8 @@ def Blog(request):
 @login_required
 def Post(request):
     form = PostForm(request.POST or None)
+    print(request.path)
+    print(form.is_valid())
     if request.method == 'POST' and form.is_valid():
         Posts.objects.create(
             author_id=request.user.id,
@@ -30,6 +33,9 @@ def PostList(request):
     postlists = Posts.objects.all().order_by('created_date').reverse()
     return render(request, 'blog/postlist.html', {'postlists': postlists, 'username': request.user})
 
+def UserPostList(request, author):
+    postlists = Posts.objects.filter(author=get_object_or_404(User, username=author)).order_by('created_date').reverse()
+    return render(request, 'blog/userpostlist.html', {'postlists': postlists, 'username': request.user, 'author': author})
 
 def PostDetail(request, pk, author):
     post = get_object_or_404(Posts, pk=pk)
@@ -58,8 +64,3 @@ def PostEdit(request, pk, author):
                 return redirect('blog:list')
         return render(request, 'blog/postedit.html', {'form': form, 'username': request.user})
     return redirect('blog:detail', pk=pk)
-
-#@login_required
-def User(request):
-    print(request.user.id)
-    return redirect('login')

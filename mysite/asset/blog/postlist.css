@@ -1,17 +1,17 @@
-#blog div {
+#postlist div {
     border-bottom: solid 1px #D3D3D3;
 }
-#blog p {
+#postlist p {
     color: #999999;
 }
-#blog div p a {
+#postlist div p a {
     color: #999999;
 }
-#blog > a {
+#postlist > a {
     font-size: 20px;
     font-weight: bold;
 }
-#blog div > a {
+#postlist div > a {
     font-size: 20px;
     font-weight: bold;
 }

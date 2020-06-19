@@ -103,10 +103,8 @@ Portfolio
                         <p>氏名・メールアドレスはアカウントの情報を使用するため省略。</p>
                     {% endif %}
                 <form method="POST" novalidate>
-                    <ul>
-                        {% csrf_token %}
-                        {{ form.as_ul}}
-                    </ul>
+                    {% csrf_token %}
+                    {{ form.as_p }}
                     <button type="submit">送信</button>
                 </form>
             </section>

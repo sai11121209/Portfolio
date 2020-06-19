@@ -53,3 +53,29 @@ form .text:focus {
     border: solid 1px #DCDCDC;
     filter: drop-shadow(0px 1px 1px #A9A9A9);
 }
+.errorMessage {
+    z-index: 3;
+    position: absolute; /* 三角の位置を固定するために設定 */
+    width: 300px; /* 幅 */
+    margin: 0 auto 40px; /* 上 左右 下のマージン */
+    padding: 20px; /* ふきだし内の余白 */
+    background: #ddd; /* 背景色 */
+    text-align: center; /* テキストの揃え */
+    border-radius: 8px; /* <-追加 */
+}
+.errorMessage::before,
+.errorMessage::after { /* 三角 */
+    content: '';
+    border: 14px solid transparent;
+    position: absolute;
+    left: 50%;
+    margin-left: -14px;
+}
+.errorMessage::before { /* 線になる部分 */
+    border-top-color: #ddd; /* 吹き出しの線の色と同じ色 */
+    bottom: -28px;
+}
+.errorMessage::after { /* 地の部分 */
+    border-top-color: #fff; /* 吹き出しの背景色と同じ色 */
+    bottom: -27px;
+}
