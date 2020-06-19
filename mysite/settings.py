@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'blog',
     'portfolio',
     'markdownx',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -145,6 +147,14 @@ LOGOUT_REDIRECT_URL='/'
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'sai11121209',
+    'API_KEY': '162462496195924',
+    'API_SECRET': 'cf3zOnJQRt-NSSqB2Obsx8KLEc8'
+}
 
 try:
     from .local_settings import *
