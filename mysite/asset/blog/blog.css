@@ -12,20 +12,20 @@
     color: #222222;
     text-decoration: none;
 }
-.postlists div {
+#blog div {
     border-bottom: solid 1px #D3D3D3;
 }
-.postlists p {
+#blog p {
     color: #999999;
 }
-.postlists div p a {
+#blog div p a {
     color: #999999;
 }
-.postlists > a {
+#blog > a {
     font-size: 20px;
     font-weight: bold;
 }
-.postlists div > a {
+#blog div > a {
     font-size: 20px;
     font-weight: bold;
 }

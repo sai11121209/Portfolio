@@ -9,8 +9,8 @@ PostList
 {% endblock titleh1 %}
 
 {% block contentsIn %}
-<h1>記事一覧</h1>
-<div class="postlists">
+<div id="postlist">
+    <h1>記事一覧</h1>
     {% for postlist in postlists %}
         <div>
             <a href="{% url 'blog:detail' pk=postlist.pk author=postlist.author %}">{{postlist}}</a>

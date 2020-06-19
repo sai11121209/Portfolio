@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 
 {% block title %}
-blog
+Blog
 {% endblock title %}
 
 {% block titleh1 %}
@@ -9,8 +9,8 @@ Blog
 {% endblock titleh1 %}
 
 {% block contentsIn %}
-<h1>最新記事</h1>
-<div class="postlists">
+<div id="blog">
+    <h1>最新記事</h1>
     {% for postlist in postlists %}
         <div>
             <a href="{% url 'blog:detail' pk=postlist.pk author=postlist.author %}">{{postlist}}</a>

@@ -1,4 +1,10 @@
 {% extends 'registration/base.html' %}
+{% load static %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/accounts.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/mypage.css' %}">
+{% endblock stylesheet %}
 
 {% block title %}
 MyPage
@@ -9,25 +15,27 @@ MyPage
 {% endblock titleh1 %}
 
 {% block contentsIn %}
-    <h1>Blog投稿一覧</h1>
-    <div class="postlists">
-        {% for postlist in postlists %}
-            <div>
-                <a href="{% url 'blog:detail' pk=postlist.pk author=postlist.author %}">{{postlist}}</a>
-                <p>作成日時{{postlist.created_date}} 最終更新日時{{postlist.update_date}}
-            </div>
-        {% endfor %}
+    <div id="mypage">
+        <h1>Blog投稿一覧</h1>
+        <div class="postlists">
+            {% for postlist in postlists %}
+                <div>
+                    <a href="{% url 'blog:detail' pk=postlist.pk author=postlist.author %}">{{postlist}}</a>
+                    <p>作成日時{{postlist.created_date}} 最終更新日時{{postlist.update_date}}
+                </div>
+            {% endfor %}
+        </div>
+        <h1>Portfolio連絡履歴</h1>
+        <div class="contactlists">
+            {% for contactlist in contactlists %}
+                <div>
+                    <a href="{% url 'portfolio:detail' pk=contactlist.pk username=contactlist.name %}">{{ contactlist }}</a><br>
+                    <p>連絡日時{{contactlist.created_date}}　最終更新日時{{contactlist.update_date}}
+                </div>
+            {% endfor %}
+        </div>
+        <h1>アカウント管理</h1>
+        <a href="{% url 'information_change' username=username %}">登録情報変更</a><br>
+        <a href="{% url 'password_change' %}">パスワード変更</a>
     </div>
-    <h1>Portfolio連絡履歴</h1>
-    <div class="contactlists">
-        {% for contactlist in contactlists %}
-            <div>
-                <a href="{% url 'portfolio:detail' pk=contactlist.pk username=contactlist.name %}">{{ contactlist }}</a><br>
-                <p>連絡日時{{contactlist.created_date}}　最終更新日時{{contactlist.update_date}}
-            </div>
-        {% endfor %}
-    </div>
-    <h1>アカウント管理</h1>
-    <a href="{% url 'information_change' username=username %}">登録情報変更</a><br>
-    <a href="{% url 'password_change' %}">パスワード変更</a>
 {% endblock contentsIn %}
