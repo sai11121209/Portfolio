@@ -77,9 +77,17 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-import dj_database_url
-DATABASES['default'] = dj_database_url.config()
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'name',
+        'USER': 'user',
+        'PASSWORD': '',
+        'HOST': 'host',
+        'PORT': '',
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -141,6 +149,11 @@ CLOUDINARY_STORAGE = {
     'API_KEY': '162462496195924',
     'API_SECRET': 'cf3zOnJQRt-NSSqB2Obsx8KLEc8'
 }
+
+import dj_database_url
+
+db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
+DATABASES['default'].update(db_from_env)
 
 if not DEBUG:
     SECRET_KEY = '-i0)@4@7py8o6=nk^w4t#16)_=2%!_iw*22l6atphw9qb_brv-'
