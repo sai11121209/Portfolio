@@ -3,10 +3,12 @@ chardet==3.0.4
 cloudinary==1.21.1
 distlib==0.3.0
 dj-database-url==0.5.0
+dj-static==0.0.6
 Django==3.0.7
 django-cloudinary-storage==0.2.3
 django-heroku==0.3.1
 django-markdownx==3.0.1
+django-toolbelt==0.0.1
 Faker==4.1.1
 fastrlock==0.4
 gast==0.3.3
