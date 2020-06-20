@@ -80,12 +80,16 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'name',
-        'USER': 'user',
-        'PASSWORD': '',
-        'HOST': 'host',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mysite',
+        'USER': 'root',
+        'PASSWORD': 'Yuta1209',
+        'HOST': '',
         'PORT': '',
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        }
     }
 }
 # Password validation
@@ -157,10 +161,3 @@ DATABASES['default'].update(db_from_env)
 
 if not DEBUG:
     SECRET_KEY = '-i0)@4@7py8o6=nk^w4t#16)_=2%!_iw*22l6atphw9qb_brv-'
-    import django_heroku #追加
-    django_heroku.settings(locals()) #追加
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
