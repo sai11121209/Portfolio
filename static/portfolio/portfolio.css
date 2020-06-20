@@ -50,7 +50,7 @@
 }
 .about-img {
     height: 90vh;
-    background-image: image-url(./imgs/about.jpg);
+    background-image: url(./imgs/about.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
