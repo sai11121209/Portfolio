@@ -50,7 +50,7 @@
 }
 .about-img {
     height: 90vh;
-    /*background-image: image-url(./imgs/about.jpg);*/
+    background-image: image-url(./imgs/about.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -150,7 +150,7 @@
     height: 90vh;
     width:100%;
     max-width: 100%;
-    /*background-image: url(./imgs/pythoncode_s.jpg);*/
+    background-image: url(./imgs/pythoncode_s.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -159,7 +159,7 @@
 }
 @media screen and (min-width:600px){
     .work-img {
-        /*background-image: url(./imgs/pythoncode3.jpg);*/
+        background-image: url(./imgs/pythoncode3.jpg);
     }
 }
 .modalArea {
@@ -216,7 +216,7 @@
 }
 .contact-img {
     height: 90vh;
-    /*background-image: url(./imgs/pythoncode.jpg);*/
+    background-image: url(./imgs/pythoncode.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
