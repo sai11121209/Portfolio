@@ -6,7 +6,6 @@ dj-database-url==0.5.0
 dj-static==0.0.6
 Django==3.0.7
 django-cloudinary-storage==0.2.3
-django-heroku==0.3.1
 django-markdownx==3.0.1
 django-toolbelt==0.0.1
 Faker==4.1.1
@@ -34,7 +33,7 @@ query-string==2019.4.13
 request==2019.4.13
 requests==2.23.0
 requests-oauthlib==1.3.0
-rsa==4.0P
+rsa==4.0
 six==1.15.0
 sqlparse==0.3.1
 termcolor==1.1.0
