@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import dj_database_url
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -134,9 +136,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-IMAGE_ROOT = os.path.join(BASE_DIR, 'images')
-IMAGE_URL = '/images/'
-
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL='/accounts/login'
 LOGIN_REDIRECT_URL='/blog'
@@ -151,8 +150,6 @@ CLOUDINARY_STORAGE = {
     'API_KEY': '162462496195924',
     'API_SECRET': 'cf3zOnJQRt-NSSqB2Obsx8KLEc8'
 }
-
-import dj_database_url
 
 try:
     from .local_settings import *
