@@ -138,8 +138,6 @@ LOGIN_URL='/accounts/login'
 LOGIN_REDIRECT_URL='/blog'
 LOGOUT_REDIRECT_URL='/'
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
