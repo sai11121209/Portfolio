@@ -27,7 +27,7 @@ urlpatterns = [
     path('', views.top, name='top'),
     path('', include('portfolio.urls')),
     path('', include('blog.urls')),
-    path('mdeditor/', include('mdeditor.urls')), # 追加
+        path('mdeditor/', include('mdeditor.urls')), # 追加
 ]
 
 if settings.DEBUG:

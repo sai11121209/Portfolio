@@ -1,6 +1,6 @@
 {% extends 'blog/base.html' %}
-{% load markdown_extras %}
 {% load static %}
+{% load markdown_extras %}
 
 {% block stylesheet %}
     <link rel="stylesheet" type="text/css" href="{% static 'blog/postdetail.css' %}">
@@ -27,7 +27,7 @@ PostDetail
                 <li><a>{{tag}}</a></li>
             {% endfor %}
         </ul>
-        <p>	{{ post.text|markdown|safe }}</p>
+        <p>{{ form.text|markdown|safe }}</p>
     </div>
     {% if post.author == username %}
         <form method="POST" novalidate>
