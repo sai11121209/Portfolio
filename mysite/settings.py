@@ -153,6 +153,13 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+MDEDITOR_CONFIGS = {
+    'default': {
+        'language': 'en',
+    }
+}
+
+
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'sai11121209',
     'API_KEY': '162462496195924',
