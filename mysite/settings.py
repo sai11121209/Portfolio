@@ -38,10 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'portfolio',
-    'markdownx',
+    'mdeditor',
     'cloudinary',
     'cloudinary_storage',
 ]
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -140,6 +142,9 @@ LOGIN_REDIRECT_URL = '/'
 LOGIN_URL='/accounts/login'
 LOGIN_REDIRECT_URL='/blog'
 LOGOUT_REDIRECT_URL='/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_URL = '/media/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 

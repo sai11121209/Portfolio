@@ -17,8 +17,6 @@ def Blog(request):
 @login_required
 def Post(request):
     form = PostForm(request.POST or None)
-    print(request.path)
-    print(form.is_valid())
     if request.method == 'POST' and form.is_valid():
         Posts.objects.create(
             author_id=request.user.id,
