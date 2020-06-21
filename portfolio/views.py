@@ -11,7 +11,10 @@ def Portfolio(request):
         form = ContactForm(request.POST or None)
     else:
         form = ContactLoginForm(request.POST or None)
-    para = {'form': form}
+    with open('requirements.txt', encoding='utf-16') as f:
+        url = ['https://img.shields.io/pypi/v/', '?label=']
+        requirements = [url[0]+requirement[0:requirement.find('==')]+url[1]+requirement[0:requirement.find('==')] for requirement in f.readlines()]
+    para = {'form': form, 'requirements': requirements}
     para['username'] = request.user
     if request.method == 'POST' and form.is_valid():
         if request.user.id == None:

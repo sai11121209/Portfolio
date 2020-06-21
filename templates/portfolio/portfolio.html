@@ -47,18 +47,42 @@ Portfolio
             </section>
             <section id="my-works">
                 <div class="my-work">
-                    <h3>天気予報アプリ</h3>
+                    <h3>ポートフォリオ</h3>
                     <div>
-                        <img src="{% static 'portfolio/imgs/my-work1.png' %}">
+                        <img class="my-work-web-imgs" src="{% static 'portfolio/imgs/my-work3_1.png' %}">
                     </div>
                     <button id="openModal1" class="openModal">>Work Details</button>
                     <section id="modalArea1" class="modalArea">
                         <div id="modalBg1" class="modalBg"></div>
                         <div class="modalWrapper">
                             <div class="modalContents">
-                                <h1>天気予報アプリ</h1>
-                                <p></p>
-                                <a href="https://github.com/sai11121209/Weather_Checker"><p>GitHub</p></a>
+                                <h3>ポートフォリオ</h3>
+                                <img class="modalContents-web-imgs" src="{% static 'portfolio/imgs/my-work3_2.png' %}">
+                                <h3>製作期間</h3>
+                                <p>デプロイまで約2週間</p>
+                                <p>※現在更新中</p>
+                                <h3>使用言語</h3>
+                                <p>Python3.8.3</p>
+                                <p>HTML</p>
+                                <p>CSS</p>
+                                <p>Javascript</p>
+                                <h3>使用フレームワーク</h3>
+                                <p>Django:3.0.7</p>
+                                <p>jQuery:3.4.1</p>
+                                <h3>使用データベース</h3>
+                                <p>開発環境:MySQL</p>
+                                <p>本番環境:PostgreSQL</p>
+                                <h3>使用Pythonライブラリ</h3>
+                                <p>requirements記載のライブラリです</p>
+                                <div class="librarys">
+                                    {% for requirement in requirements %}
+                                        <img src={{requirement}} >
+                                    {% endfor %}
+                                </div>
+                                <h4>ポートフォリオだけではなくブログも使えるWebサイト</h4>
+                                <p>このサイトを作成するにあたって<br>サイト全体をシンプルに見やすくするために<br>黒と白を基調とした配色を心掛けました。</p>
+                                <p>またフレームワークの学習、<br>データベースの学習を行うために<br>WordPressをあえて使用せず作成しました。</p>
+                                <button onClick="location.href='https://github.com/sai11121209/Portfolio'">Visit github</button>
                                 <button id="closeModal1" class="closeModal">Close</button>
                             </div>
                         </div>
@@ -75,13 +99,58 @@ Portfolio
                         <div id="modalBg2" class="modalBg"></div>
                         <div class="modalWrapper">
                             <div class="modalContents">
-                                <h1>東京ディズニーリゾート待ち時間解析アプリ</h1>
+                                <h3>東京ディズニーリゾート待ち時間解析アプリ</h3>
                                 <img src="{% static 'portfolio/imgs/my-work2_3.png' %}">
-                                <p>製作期間:約2週間</p>
+                                <h3>製作期間</h3>
+                                <p>約2週間</p>
+                                <h3>使用言語</h3>
+                                <p>Windows10: Python3.7.8</p>
+                                <p>iPhone X (Pythonista3): Python3.6</p>
+                                <h3>使用Pythonライブラリ</h3>
+                                <div class="librarys">
+                                    <img src="https://img.shields.io/pypi/v/mysql-connector-python?label=mysql-connector-python">
+                                    <img src="https://img.shields.io/pypi/v/sshtunnel?label=sshtunnel">
+                                    <img src="https://img.shields.io/pypi/v/requests?label=requests">
+                                    <img src="https://img.shields.io/pypi/v/pandas?label=Pandas">
+                                    <img src="https://img.shields.io/pypi/v/matplotlib?label=matplotlib">
+                                </div>
                                 <h4>matplotlibを用いることで待ち時間の推移を瞬時に可視化</h4>
-                                <p>東京ディズニーリゾートのアトラクション待ち時間を出来る限り少なくすることで一日満喫したい!という意気込みで開発をしました。</p>
-                                <a href="https://github.com/sai11121209/TDR_Wait_Time_Analysis_App"><p>GitHub</p></a>
+                                <p>東京ディズニーリゾートのアトラクション待ち時間を<br>出来る限り少なくすることで一日満喫したい!<br>という意気込みで開発をしました。</p>
+                                <p>このアプリ最大の特徴がアトラクションそれぞれの待ち時間を上のような形で推移をグラフとして表示することが出来る点です。</p>
+                                <p>また一日の待ち時間データを任意の間隔で取得可能なのできめ細かいグラフも描くことが可能です。</p>
+                                <p>
+                                <button onClick="location.href='https://github.com/sai11121209/TDR_Wait_Time_Analysis_App'">Visit github</button>
                                 <button id="closeModal2" class="closeModal">Close</button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="my-work">
+                    <h3>天気予報アプリ</h3>
+                    <div>
+                        <img src="{% static 'portfolio/imgs/my-work1_1.png' %}">
+                    </div>
+                    <button id="openModal3" class="openModal">>Work Details</button>
+                    <section id="modalArea3" class="modalArea">
+                        <div id="modalBg3" class="modalBg"></div>
+                        <div class="modalWrapper">
+                            <div class="modalContents">
+                                <h1>天気予報アプリ</h1>
+                                <img src="{% static 'portfolio/imgs/my-work1_2.png' %}">
+                                <h3>製作期間</h3>
+                                <p>約1週間</p>
+                                <h3>使用言語</h3>
+                                <p>iPhone X (Pythonista3): Python3.6</p>
+                                <h3>使用Pythonライブラリ</h3>
+                                <div class="librarys">
+                                    <img src="https://img.shields.io/pypi/v/Pillow?label=Pillow">
+                                    <img src="https://img.shields.io/pypi/v/requests?label=requests">
+                                </div>
+                                <h4>iPhone本体のGPS機能を使用して現在地の天気予報を表示</h4>
+                                <p>本アプリはlivedoor天気情報APIのWeather Hacks、<br>農研機構apiの簡易逆ジオコーディングサービス<br>この双方を活用することで現在いる大まかな場所や、<br>その場所の天気を素早く確認することができるアプリです。</p>
+                                <p>またこれからの天気に応じて画面の背景を切り替えることで、<br>文字を読まなくともこれからの天気を把握することが出来ます。</p>
+                                <button onclick="location.href='https://github.com/sai11121209/Weather_Checker'">Visit github</a>
+                                <button id="closeModal3" class="closeModal">Close</button>
                             </div>
                         </div>
                     </section>

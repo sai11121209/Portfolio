@@ -17,6 +17,7 @@
 #contents h3::after {
     margin-left: 1rem;
 }
+
 .contents-header {
     position: relative;
     color: #000;
@@ -134,6 +135,12 @@
     object-fit: cover;
     filter: drop-shadow(0px 2px 3px #666);
 }
+.my-work-web-imgs {
+    width: 700px !important;
+}
+.modalContents-web-imgs {
+    width: 80% !important;
+}
 .openModal {
     margin: 50px;
     width: 250px;
@@ -195,6 +202,13 @@
     background-color: #fff;
     overflow-y:scroll;
     border-radius: 10px;
+}
+.modalContents h4 {
+    text-decoration: underline
+}
+.librarys img {
+    height: 3% !important;
+    width: auto !important;
 }
 .closeModal {
     top: 0.5rem;

@@ -66,4 +66,15 @@ $(function(){
 		return false;
 	});
 
+	$('#openModal3').click(function(){
+		$('#modalArea3').fadeIn();
+		scrollPos = $(window).scrollTop();
+		$('body').addClass('fixed').css({ top: -scrollPos });
+	});
+
+	$('#closeModal3, #modalBg3').click(function(){
+		$('body').removeClass('fixed').css({ top: $(window).scrollTop(scrollPos) });
+		$('#modalArea3').fadeOut();
+		return false;
+	});
 });
