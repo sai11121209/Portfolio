@@ -21,7 +21,7 @@ form {
     display: flex;
     flex-direction: row;
 }
-.postcontents li {
+.postcontents > li {
     margin-left: 10px;
     background: #DCDCDC;
     border-radius: 3px;
