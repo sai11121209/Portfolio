@@ -12,6 +12,7 @@ PostEdit
 <div id="postedit">
     <form method="POST">
         {% csrf_token %}
+        {{ form.media }}
         {{form.as_p}}
         <button type="submit" name="edit">編集</button></a>
         <button type="submit" name="del" onclick="return confirm("本当に削除しますか？")";>消去</button>

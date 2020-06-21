@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from . import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 urlpatterns = [
@@ -25,5 +27,9 @@ urlpatterns = [
     path('', views.top, name='top'),
     path('', include('portfolio.urls')),
     path('', include('blog.urls')),
-    path('markdownx/', include('markdownx.urls')),
+        path('mdeditor/', include('mdeditor.urls')), # 追加
 ]
+
+if settings.DEBUG:
+    # static files (images, css, javascript, etc.)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

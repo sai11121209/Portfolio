@@ -38,10 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'portfolio',
-    'markdownx',
+    'mdeditor',
     'cloudinary',
     'cloudinary_storage',
 ]
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -70,6 +72,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries': {
+                'markdown_extras': 'templatetags.markdown_extras' # 追記
+            }
         },
     },
 ]
@@ -141,9 +146,19 @@ LOGIN_URL='/accounts/login'
 LOGIN_REDIRECT_URL='/blog'
 LOGOUT_REDIRECT_URL='/'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_URL = '/media/'
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+MDEDITOR_CONFIGS = {
+    'default': {
+        'language': 'en',
+    }
+}
+
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'sai11121209',

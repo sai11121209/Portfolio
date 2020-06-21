@@ -18,6 +18,7 @@ Post
     <form method="POST" novalidate>
         <ul>
             {% csrf_token %}
+            {{ form.media }}
             {{ form.as_ul}}
         </ul>
         <button type="submit">投稿</button>
