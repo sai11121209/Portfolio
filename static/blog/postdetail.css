@@ -24,7 +24,7 @@ form {
     display: flex;
     flex-direction: row;
 }
-.postcontents > li {
+.tags li{
     margin-left: 10px;
     background: #DCDCDC;
     border-radius: 3px;

@@ -9,7 +9,8 @@
     <div class="contentsWall">
         <div class="contentsIn">
             {% block contentsIn %}
-                <h2>contents</h2>
+                {% block contentsId %}<div>{% endblock contentsId %}
+                </div>
             {% endblock contentsIn %}
         </div>
     </div>

@@ -14,16 +14,20 @@ Post
 {% endblock titleh1 %}
 
 {% block contents %}
-<div id="post">
+{% block contentsId %}
+    <div id="post">
+{% endblock contentsId %}
     <form method="POST" novalidate>
         <ul>
             {% csrf_token %}
             {{ form.media }}
             {{ form.as_ul}}
         </ul>
-        <button type="submit">投稿</button>
+        {% block button %}
+            <button type="submit">投稿</button>
+        {% endblock button %}
     </form>
-</post>
+</div>
 {% endblock contents %}
 
 {% block footer %}

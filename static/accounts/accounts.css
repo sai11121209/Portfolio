@@ -1,7 +1,6 @@
 .contentsWall {
     background-color: #FFF;
     max-width: 998px;
-    margin: 30px auto;
     border: 50px;
 }
 .contentsIn {
@@ -38,4 +37,7 @@
 }
 .postdata p {
     right: 0;
+}
+#contactedit p{
+    width: 80%;
 }

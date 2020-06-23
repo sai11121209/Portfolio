@@ -47,13 +47,9 @@ def ContactDetail(request, pk, username):
 @login_required
 def ContactEdit(request, pk, username):
     if get_object_or_404(Contact, pk=pk).name == str(request.user):
-        form = ContactLoginForm(request.POST or None)
         contact = get_object_or_404(Contact, pk=pk)
-        form.fields['title'].widget = forms.TextInput(attrs={'value': contact.title})
-        form.fields['text'].widget = forms.Textarea(attrs={'value': contact.text})
+        form = ContactLoginForm(request.POST or None, instance=contact)
         if request.method == 'POST' and form.is_valid():
-            contact.title=form.cleaned_data['title']
-            contact.text=form.cleaned_data['text']
             contact.update()
             return redirect('mypage')
         return render(request, 'portfolio/contactedit.html', {'username': request.user, 'contact': contact, 'form': form})

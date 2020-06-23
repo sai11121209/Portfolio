@@ -19,16 +19,18 @@ PostDetail
 {% block contentsIn %}
 <div id="postdetail">
     <div class="postdata">
-        <a>{{ post.author }}</a>
+        <a href="{% url 'blog:userpostlist' author=post.author %}">{{ post.author }}</a>
         <p>Last Update:{{ post.update_date }}</p>
     </div>
     <div class="postcontents">
         <h1>{{ post }}</h1>
-        <ul>
-            {% for tag in post.tag %}
-                <li><a>{{tag}}</a></li>
-            {% endfor %}
-        </ul>
+        <div class="tags">
+            <ul>
+                {% for tag in post.tag %}
+                    <li><a>{{tag}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
         <div id="content">{{ post.text|markdown|safe }}</div>
     </div>
     {% if post.author == username %}

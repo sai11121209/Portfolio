@@ -8,10 +8,10 @@ class ContactForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['name'] = forms.CharField(label='氏名', widget=forms.TextInput(attrs={'placeholder':'例)山田 太郎'}))
-        self.fields['email'] = forms.EmailField(label='メールアドレス', required=False, widget=forms.TextInput(attrs={'placeholder':'例)portfolio@example.com ※任意'}))
-        self.fields['title'] = forms.CharField(label='件名', widget=forms.TextInput(attrs={'placeholder':'件名を入力してください。'}))
-        self.fields['text'] = forms.CharField(label='ご意見・お問い合わせ', widget=forms.Textarea(attrs={'placeholder':'お問い合わせの内容をご入力ください。'}))
+        self.fields['name'] = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder':'氏名: 例)山田 太郎'}))
+        self.fields['email'] = forms.EmailField(label='', required=False, widget=forms.TextInput(attrs={'placeholder':'メールアドレス: 例)portfolio@example.com ※任意'}))
+        self.fields['title'] = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder':'件名: 件名を入力してください。'}))
+        self.fields['text'] = forms.CharField(label='', widget=forms.Textarea(attrs={'placeholder':'お問い合わせ内容: お問い合わせの内容をご入力ください。'}))
 
 class ContactLoginForm(forms.ModelForm):
     class Meta:
@@ -20,5 +20,5 @@ class ContactLoginForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['title'] = forms.CharField(label='件名', widget=forms.TextInput(attrs={'placeholder':'件名を入力してください。'}))
-        self.fields['text'] = forms.CharField(label='ご意見・お問い合わせ', widget=forms.Textarea(attrs={'placeholder':'お問い合わせの内容をご入力ください。'}))
+        self.fields['title'] = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder':'件名: 件名を入力してください。'}))
+        self.fields['text'] = forms.CharField(label='', widget=forms.Textarea(attrs={'placeholder':'お問い合わせ内容: お問い合わせの内容をご入力ください。'}))

@@ -8,14 +8,11 @@ PostEdit
 PostEdit
 {% endblock titleh1 %}
 
-{% block contents %}
-<div id="postedit">
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.media }}
-        {{form.as_p}}
-        <button type="submit" name="edit">編集</button></a>
-        <button type="submit" name="del" onclick="return confirm("本当に削除しますか？")";>消去</button>
-    </form>
-</div>
-{% endblock contents %}
+{% block contentsId %}
+    <div id="postedit">
+{% endblock contentsId %}
+
+{% block button %}
+    <button type="submit" name="edit">編集</button></a>
+    <button type="submit" name="del" onclick="return confirm("本当に削除しますか？")";>消去</button>
+{% endblock button %}
