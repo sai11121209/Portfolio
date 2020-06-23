@@ -7,7 +7,7 @@ from mdeditor.fields import MDTextField # 追加
 class Posts(models.Model):
     author = models.ForeignKey('auth.user', on_delete=models.CASCADE)
     title = models.TextField(max_length=500)
-    text = MDTextField('text', help_text='To Write with Markdown')
+    text = MDTextField()
     tags = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     update_date = models.DateTimeField(default=timezone.now)

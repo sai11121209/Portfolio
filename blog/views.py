@@ -6,8 +6,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
-from mdeditor.fields import MDTextFormField # 追加
-
 
 # Create your views here.
 def Blog(request):
@@ -48,14 +46,13 @@ def PostEdit(request, pk, author):
     if get_object_or_404(Posts, pk=pk).author == request.user:
         form = PostForm(request.POST or None)
         post = get_object_or_404(Posts, pk=pk)
-        form.fields['title'].widget = forms.TextInput(attrs={'value':post.title})
-        form.fields['tags'].widget = forms.TextInput(attrs={'value':post.tags})
-        form.fields['text'] = MDTextFormField()
+        form = PostForm({'title': post.title, 'tags': post.tags, 'text': post.text})
         if request.method == 'POST' and form.is_valid():
             if 'edit' in request.POST:
                 post.title = form.cleaned_data['title']
-                post.tag = form.cleaned_data['tag']
-                #post.text = form.cleaned_data['text']
+                post.tag = form.cleaned_data['tags']
+                post.text = form.cleaned_data['text']
+                print(form.cleaned_data['text'])
                 post.update()
                 return redirect('blog:detail', pk=pk, author=author)
             if 'del' in request.POST:
