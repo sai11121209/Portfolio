@@ -19,7 +19,7 @@ PostList
     {% for postlist in postlists %}
         <div>
             <a href="{% url 'blog:detail' pk=postlist.pk author=postlist.author %}">{{postlist}}</a>
-            <p>by <a href="{% url 'blog:userpostlist' author=postlist.author %}">{{postlist.author}}</a>　{{postlist.update_date|timesince}}前</p>
+            <p>by <a href="{% url 'blog:userpostlist' author=postlist.author %}">{{postlist.author}}</a>　作成:{{postlist.created_date|timesince}}前　最終更新:{{postlist.update_date|timesince}}</p>
         </div>
     {% endfor %}
 </div>

@@ -44,15 +44,13 @@ def PostDetail(request, pk, author):
 @login_required
 def PostEdit(request, pk, author):
     if get_object_or_404(Posts, pk=pk).author == request.user:
-        form = PostForm(request.POST or None)
         post = get_object_or_404(Posts, pk=pk)
-        form = PostForm({'title': post.title, 'tags': post.tags, 'text': post.text})
+        form = PostForm(request.POST or None, instance=post)
         if request.method == 'POST' and form.is_valid():
             if 'edit' in request.POST:
-                post.title = form.cleaned_data['title']
-                post.tag = form.cleaned_data['tags']
-                post.text = form.cleaned_data['text']
-                print(form.cleaned_data['text'])
+                #post.title = form.cleaned_data['title']
+                #post.tags = form.cleaned_data['tags']
+                #post.text = form.cleaned_data['text']
                 post.update()
                 return redirect('blog:detail', pk=pk, author=author)
             if 'del' in request.POST:

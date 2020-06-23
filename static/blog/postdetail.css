@@ -1,6 +1,9 @@
 form {
     text-align: center;
 }
+#content {
+    padding: 0;
+}
 .postdata {
     width: 70%;
     margin: 0 auto;
