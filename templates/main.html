@@ -59,7 +59,7 @@
                                 <li>
                                     <a href="">⌵ ログイン中(admin)<span></span></a>
                                     <ul>
-                                        <li><a href="{% url 'mypage' %}">>MyPage</a></li>
+                                        <li><a href="{% url 'mypage' username=request.user %}">>MyPage</a></li>
                                         <li><a href="{% url 'logout' %}"><p>>Logout</p></a></li>
                                     </ul>
                                 </li>
@@ -69,7 +69,7 @@
                                 <li>
                                     <a href="">⌵ ログイン中(user)<span></span></a>
                                     <ul>
-                                        <li><a href="{% url 'mypage' %}">>MyPage</a></li>
+                                        <li><a href="{% url 'mypage' username=request.user %}">>MyPage</a></li>
                                         <li><a href="{% url 'logout' %}"><p>>Logout</p></a></li>
                                     </ul>
                                 </li>
