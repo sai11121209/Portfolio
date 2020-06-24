@@ -11,9 +11,9 @@ class UserModelTest(TestCase):
         self.fake_en = Faker()
 
     def setup_is_dummyuser(self, fake, N, M, su):
-        dummy_deta = fake.profile()
         users = []
         for i in range(N,M+1):
+            dummy_deta = fake.profile()
             users.append(User.objects.create(
                 id=i,
                 username=dummy_deta['username'],

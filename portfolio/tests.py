@@ -18,8 +18,8 @@ class ContactModelTest(TestCase):
         self.assertEqual(saved_contact.count(), 0)
 
     def setup_is_dummycontact(self, fake, N):
-        dummy_deta = fake.profile()
         for i in range(1,N+1):
+            dummy_deta = fake.profile()
             Contact.objects.create(
             id=i,
             name=dummy_deta['name'],
@@ -31,9 +31,9 @@ class ContactModelTest(TestCase):
             )
 
     def setup_is_dummyuser(self, fake, N, M, su):
-        dummy_deta = fake.profile()
         users = []
         for i in range(N,M+1):
+            dummy_deta = fake.profile()
             users.append(User.objects.create(
                 id=i,
                 username=dummy_deta['username'],
@@ -85,7 +85,6 @@ class ContactModelTest(TestCase):
         request = rf.post(resolve_url('portfolio:home'), data={'title': dummy_deta['company'], 'text': dummy_deta['residence']})
         request.user = user
         response = Portfolio(request)
-        print(response)
         self.assertEqual(302, response.status_code)
         saved_contact = Contact.objects.all()
         self.assertEqual(saved_contact.count(), 1)
