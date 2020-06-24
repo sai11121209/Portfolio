@@ -117,6 +117,15 @@ class PostsModelTest(TestCase):
         self.assertEqual(200, response.status_code,)
         self.assertContains(response, 'ログイン中(admin)')
 
+    def test_is_blog_userpostlist(self):
+        user = self.setup_is_dummyuser(self.fake_ja, 1, 1, False)[0]
+        post = self.setup_is_dummyposts(self.fake_ja, 1)[0]
+        response = self.client.get(resolve_url('blog:userpostlist', author=user))
+        self.assertEqual(200, response.status_code)
+        self.assertContains(response, 'PostList')
+        self.assertContains(response, user)
+        self.assertContains(response, post.title)
+
     def test_is_blog_postdetail(self):
         user = self.setup_is_dummyuser(self.fake_ja, 1, 2, False)
         post = self.setup_is_dummyposts(self.fake_ja, 1)[0]
@@ -135,3 +144,19 @@ class PostsModelTest(TestCase):
         response = PostDetail(request, pk=post.pk, author=post.author)
         self.assertEqual(200, response.status_code,)
         self.assertContains(response, 'ログイン中(user)')
+
+    def test_is_blog_postedit(self):
+        user = self.setup_is_dummyuser(self.fake_ja, 1, 2, False)
+        post = self.setup_is_dummyposts(self.fake_ja, 1)[0]
+        response = self.client.get(resolve_url('blog:edit', pk=post.pk, author=post.author))
+        self.assertEqual(302, response.status_code)
+        rf = RequestFactory()
+        request = rf.get(resolve_url('blog:edit', pk=post.pk, author=post.author))
+        request.user = user[0]
+        response = PostEdit(request, pk=post.pk, author=post.author)
+        self.assertEqual(200, response.status_code,)
+        self.assertContains(response, 'ログイン中(user)')
+        self.assertContains(response, '消去')
+        request.user = user[1]
+        response = PostEdit(request, pk=post.pk, author=post.author)
+        self.assertEqual(302, response.status_code,)
