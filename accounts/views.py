@@ -50,11 +50,12 @@ class SignUpView(generic.CreateView):
     template_name = 'registration/signup.html'
 
 @login_required
-def MyPage(request):
-    postlists = Posts.objects.filter(author=request.user)
-    contactlists = Contact.objects.filter(name=request.user)
-    print(postlists)
-    return render(request, 'registration/mypage.html', {'username': request.user, 'postlists': postlists, 'contactlists': contactlists})
+def MyPage(request, username):
+    if username == str(request.user):
+        postlists = Posts.objects.filter(author=request.user)
+        contactlists = Contact.objects.filter(name=request.user)
+        return render(request, 'registration/mypage.html', {'username': request.user, 'postlists': postlists, 'contactlists': contactlists})
+    return redirect('mypage', username=request.user)
 
 @login_required
 def UserInformationChange(request, username):
@@ -69,6 +70,6 @@ def UserInformationChange(request, username):
             user.last_name = form.cleaned_data['last_name']
             user.email = form.cleaned_data['email']
             user.save()
-            return redirect('mypage')
+            return redirect('mypage', username=username)
         return render(request, 'registration/information_change_form.html', {'username': request.user, 'form': form})
-    return redirect('mypage')
+    return redirect('mypage', username=username)
