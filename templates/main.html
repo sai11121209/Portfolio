@@ -27,11 +27,11 @@
                                 <ul>
                                     <li><a href="{% url 'blog:home' %}"><p>>Home</p></a></li>
                                     {% if username.id != None %}
-                                        {% if '/post' not in request.path%}
+                                        {% if 'post' not in request.path or 'postlist' in request.path%}
                                             <li><a href="{% url 'blog:post' %}"><p>>Post</p></a></li>
                                         {% endif %}
                                     {% endif %}
-                                    {% if '/postlist/' not in request.path%}
+                                    {% if 'postlist' not in request.path%}
                                         <li><a href="{% url 'blog:list' %}"><p>>PostList</p></a></li>
                                     {% endif %}
                                 </ul>
