@@ -21,13 +21,13 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     path('accounts/', include('accounts.urls')), # [追加]
     path('accounts/', include('django.contrib.auth.urls')),
     path('', views.top, name='top'),
     path('', include('portfolio.urls')),
     path('', include('blog.urls')),
-        path('mdeditor/', include('mdeditor.urls')), # 追加
+    path('mdeditor', include('mdeditor.urls')), # 追加
 ]
 
 if settings.DEBUG:
