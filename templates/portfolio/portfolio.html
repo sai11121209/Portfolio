@@ -56,7 +56,7 @@ Portfolio
                 <div class="my-work">
                     <h3>ポートフォリオ</h3>
                     <div>
-                        <img class="my-work-web-imgs" src="{% static 'portfolio/imgs/my-work3_1.png' %}">
+                        <img class="my-work-web-imgs" src="{% static 'portfolio/imgs/my-work1_1.png' %}">
                     </div>
                     <button id="openModal1" class="openModal">>Work Details</button>
                     <section id="modalArea1" class="modalArea">
@@ -64,10 +64,9 @@ Portfolio
                         <div class="modalWrapper">
                             <div class="modalContents">
                                 <h3>ポートフォリオ</h3>
-                                <img class="modalContents-web-imgs" src="{% static 'portfolio/imgs/my-work3_2.png' %}">
+                                <img class="modalContents-web-imgs" src="{% static 'portfolio/imgs/my-work1_2.png' %}">
                                 <h3>製作期間</h3>
                                 <p>デプロイまで約2週間</p>
-                                <p>※現在更新中</p>
                                 <h3>使用言語</h3>
                                 <p>Python3.8.3</p>
                                 <p>HTML</p>
@@ -83,7 +82,7 @@ Portfolio
                                 <p>requirements記載のライブラリです</p>
                                 <div class="librarys">
                                     {% for requirement in requirements %}
-                                        <img src={{requirement}} >
+                                        <img src={{ requirement }} >
                                     {% endfor %}
                                 </div>
                                 <h4>ポートフォリオだけではなくブログも使えるWebサイト</h4>
@@ -133,17 +132,64 @@ Portfolio
                     </section>
                 </div>
                 <div class="my-work">
-                    <h3>天気予報アプリ</h3>
+                    <h3>東京ディズニーリゾート待ち時間解析アプリ(WEBアプリ版)</h3>
                     <div>
-                        <img src="{% static 'portfolio/imgs/my-work1_1.png' %}">
+                        <img src="{% static 'portfolio/imgs/my-work3_1.png' %}">
+                        <img src="{% static 'portfolio/imgs/my-work3_2.png' %}">
                     </div>
                     <button id="openModal3" class="openModal">>Work Details</button>
                     <section id="modalArea3" class="modalArea">
                         <div id="modalBg3" class="modalBg"></div>
                         <div class="modalWrapper">
                             <div class="modalContents">
+                                <h3>東京ディズニーリゾート待ち時間解析アプリ</h3>
+                                <h3>(WEBアプリ版)</h3>
+                                <img src="{% static 'portfolio/imgs/my-work3_3.png' %}">
+                                <h3>製作期間</h3>
+                                <p>約1週間</p>
+                                <p>※現在作成中</p>
+                                <h3>使用言語</h3>
+                                <p>Python3.8.3</p>
+                                <p>HTML</p>
+                                <p>CSS</p>
+                                <p>Javascript</p>
+                                <h3>使用フレームワーク</h3>
+                                <p>Django:3.0.7</p>
+                                <p>jQuery:3.4.1</p>
+                                <h3>使用データベース</h3>
+                                <p>開発環境:MySQL</p>
+                                <p>本番環境:PostgreSQL</p>
+                                <h3>使用Pythonライブラリ</h3>
+                                <p>requirements記載のライブラリです</p>
+                                <div class="librarys">
+                                    {% for tdrapp_requirement in tdrapp_requirements %}
+                                        <img src={{ tdrapp_requirement }} >
+                                    {% endfor %}
+                                </div>
+                                <h4>Chart.jsを用いることで待ち時間の推移を瞬時に可視化</h4>
+                                <p>東京ディズニーリゾートのアトラクション待ち時間を<br>出来る限り少なくすることで一日満喫したい!<br>という意気込みで開発をしたTDR待ち時間解析アプリを<br>より見やすくより本家に近いデザインをテーマに作り替えました。</p>
+                                <p>またwebアプリということで、プラットフォームを選ぶことなく<br>使用することが出来るのがポイントです。</p>
+                                <p>現在開発中ですが後の機能追加で先週のデータと比較するなど<br>いかに待ち時間を減らすか、を目標に開発していきます。</p>
+                                <p>開発を行う上の練習としてGit-Flowを導入しています。</p>
+                                <p>※サイトへのアクセスは承認ユーザのみとなっています。</p>
+                                <button onClick="location.href='https://github.com/sai11121209/TDR_Wait_Time_Analysis_WebApp'">Visit github</button>
+                                <button id="closeModal3" class="closeModal">Close</button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="my-work">
+                    <h3>天気予報アプリ</h3>
+                    <div>
+                        <img src="{% static 'portfolio/imgs/my-work4_1.png' %}">
+                    </div>
+                    <button id="openModal4" class="openModal">>Work Details</button>
+                    <section id="modalArea4" class="modalArea">
+                        <div id="modalBg4" class="modalBg"></div>
+                        <div class="modalWrapper">
+                            <div class="modalContents">
                                 <h1>天気予報アプリ</h1>
-                                <img src="{% static 'portfolio/imgs/my-work1_2.png' %}">
+                                <img src="{% static 'portfolio/imgs/my-work4_2.png' %}">
                                 <h3>製作期間</h3>
                                 <p>約1週間</p>
                                 <h3>使用言語</h3>
@@ -157,7 +203,7 @@ Portfolio
                                 <p>本アプリはlivedoor天気情報APIのWeather Hacks、<br>農研機構apiの簡易逆ジオコーディングサービス<br>この双方を活用することで現在いる大まかな場所や、<br>その場所の天気を素早く確認することができるアプリです。</p>
                                 <p>またこれからの天気に応じて画面の背景を切り替えることで、<br>文字を読まなくともこれからの天気を把握することが出来ます。</p>
                                 <button onclick="location.href='https://github.com/sai11121209/Weather_Checker'">Visit github</a>
-                                <button id="closeModal3" class="closeModal">Close</button>
+                                <button id="closeModal4" class="closeModal">Close</button>
                             </div>
                         </div>
                     </section>
