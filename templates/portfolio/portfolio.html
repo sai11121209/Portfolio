@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block stylesheet %}
-    <link rel="stylesheet" type="text/css" href="{% static 'portfolio/portfolio.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'portfolio/portfolio.css' %}">
 {% endblock stylesheet %}
 
 {% block title %}
@@ -14,241 +14,269 @@ Portfolio
 {% endblock titleh1 %}
 
 {% block contents %}
-    <div id="portfolio">
-        <div id="about">
-            <section class="about-img">
-                <div class="contents-header">
-                    <h2>About</h2>
-                    <a href="#my-info"><img class="icon-arrow" src="{% static 'portfolio/imgs/icon_arrow.png' %}"></a>
+<div id="portfolio">
+    <div id="about">
+        <section class="about-img">
+            <div class="contents-header">
+                <h2>About</h2>
+                <a href="#my-info"><img class="icon-arrow" src="{% static 'portfolio/imgs/icon_arrow.png' %}"></a>
+            </div>
+        </section>
+        <section id="my-info">
+            <h3>自己紹介</h3>
+            <div class="my-name">
+                <img class="my-img" src="{% static 'portfolio/imgs/myimg.jpg' %}">
+                <div>
+                    <h1>齋川 祐太</h1>
                 </div>
-            </section>
-            <section id="my-info">
-                <h3>自己紹介</h3>
-                <div class="my-name">
-                    <img class="my-img" src="{% static 'portfolio/imgs/myimg.jpg' %}">
-                    <div>
-                        <h1>齋川 祐太</h1>
-                    </div>
-                </div>
-                <p>学習したプログラミング言語をただ覚えるのではなく、自分で1から実際にプログラムを作ることがプログラミング学習だと考え日々学習しています。</p>
-                <h3>所属</h3>
-                <p>工学院大学 コンピュータ科学科 3年</p>
-                <h3>趣味</h3>
-                <p>新しいプログラムを作成し、新たなことにチャレンジすることや、海外旅行に行き他国の文化に触れること、音楽鑑賞などです。</p>
-                <h3>言語・フレームワーク</h3>
-                <p>主な使用可能言語はPython, Java, C言語です。</p>
-                <p>またこのポートフォリオや、ブログ等のWebサービスの制作を通してHTML, CSS, JavascriptまたPythonのフレームワークDjangoの学習をしています。</p>
-                <h3>OS</h3>
-                <p>Windows</p>
-                <h3>メールアドレス</h3>
-                <p>sai11121209_at_gmail.com</p>
-                <p>お手数ですが_at_を@への置き換えをよろしくお願いいたします</p>
-            </section>
-        </div>
-        <div id="work">
-            <section class="work-img">
-                <div class="contents-header">
-                    <h2>Work</h2>
-                    <a href="#my-works"><img class="icon-arrow" src="{% static 'portfolio/imgs/icon_arrow.png' %}"></a>
-                </div>
-            </section>
-            <section id="my-works">
-                <div class="my-work">
-                    <h3>ポートフォリオ</h3>
-                    <div>
-                        <img class="my-work-web-imgs" src="{% static 'portfolio/imgs/my-work1_1.png' %}">
-                    </div>
-                    <button id="openModal1" class="openModal">>Work Details</button>
-                    <section id="modalArea1" class="modalArea">
-                        <div id="modalBg1" class="modalBg"></div>
-                        <div class="modalWrapper">
-                            <div class="modalContents">
-                                <h3>ポートフォリオ</h3>
-                                <img class="modalContents-web-imgs" src="{% static 'portfolio/imgs/my-work1_2.png' %}">
-                                <h3>製作期間</h3>
-                                <p>デプロイまで約2週間</p>
-                                <h3>ステータス</h3>
-                                <div class="librarys">
-                                    <img src="https://img.shields.io/uptimerobot/ratio/m785596360-28e377397808e6bde0f2628e">
-                                </div>
-                                <h3>使用言語</h3>
-                                <p>Python3.8.3</p>
-                                <p>HTML</p>
-                                <p>CSS</p>
-                                <p>Javascript</p>
-                                <h3>使用フレームワーク</h3>
-                                <p>Django:3.0.7</p>
-                                <p>jQuery:3.4.1</p>
-                                <h3>使用データベース</h3>
-                                <p>開発環境:MySQL</p>
-                                <p>本番環境:PostgreSQL</p>
-                                <h3>使用Pythonライブラリ</h3>
-                                <p>requirements記載のライブラリです</p>
-                                <div class="librarys">
-                                    {% for requirement in requirements %}
-                                        <img src={{ requirement }} >
-                                    {% endfor %}
-                                </div>
-                                <h4>ポートフォリオだけではなくブログも使えるWebサイト</h4>
-                                <p>このサイトを作成するにあたって<br>サイト全体をシンプルに見やすくするために<br>黒と白を基調とした配色を心掛けました。</p>
-                                <p>またフレームワークの学習、<br>データベースの学習を行うために<br>WordPressをあえて使用せず作成しました。</p>
-                                <button onClick="location.href='https://github.com/sai11121209/Portfolio'">Visit github</button>
-                                <button id="closeModal1" class="closeModal">Close</button>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <div class="my-work">
-                    <h3>東京ディズニーリゾート待ち時間解析アプリ</h3>
-                    <div>
-                        <img src="{% static 'portfolio/imgs/my-work2_1.png' %}">
-                        <img src="{% static 'portfolio/imgs/my-work2_2.png' %}">
-                    </div>
-                    <button id="openModal2" class="openModal">>Work Details</button>
-                    <section id="modalArea2" class="modalArea">
-                        <div id="modalBg2" class="modalBg"></div>
-                        <div class="modalWrapper">
-                            <div class="modalContents">
-                                <h3>東京ディズニーリゾート待ち時間解析アプリ</h3>
-                                <img src="{% static 'portfolio/imgs/my-work2_3.png' %}">
-                                <h3>製作期間</h3>
-                                <p>約2週間</p>
-                                <h3>使用言語</h3>
-                                <p>Windows10: Python3.7.8</p>
-                                <p>iPhone X (Pythonista3): Python3.6</p>
-                                <h3>使用Pythonライブラリ</h3>
-                                <div class="librarys">
-                                    <img src="https://img.shields.io/pypi/v/mysql-connector-python?label=mysql-connector-python">
-                                    <img src="https://img.shields.io/pypi/v/sshtunnel?label=sshtunnel">
-                                    <img src="https://img.shields.io/pypi/v/requests?label=requests">
-                                    <img src="https://img.shields.io/pypi/v/pandas?label=Pandas">
-                                    <img src="https://img.shields.io/pypi/v/matplotlib?label=matplotlib">
-                                </div>
-                                <h4>matplotlibを用いることで待ち時間の推移を瞬時に可視化</h4>
-                                <p>東京ディズニーリゾートのアトラクション待ち時間を<br>出来る限り少なくすることで一日満喫したい!<br>という意気込みで開発をしました。</p>
-                                <p>このアプリ最大の特徴がアトラクションそれぞれの待ち時間を上のような形で推移をグラフとして表示することが出来る点です。</p>
-                                <p>また一日の待ち時間データを任意の間隔で取得可能なのできめ細かいグラフも描くことが可能です。</p>
-                                <p>
-                                <button onClick="location.href='https://github.com/sai11121209/TDR_Wait_Time_Analysis_App'">Visit github</button>
-                                <button id="closeModal2" class="closeModal">Close</button>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <div class="my-work">
-                    <h3>東京ディズニーリゾート待ち時間解析アプリ(WEBアプリ版)</h3>
-                    <div>
-                        <img src="{% static 'portfolio/imgs/my-work3_1.png' %}">
-                        <img src="{% static 'portfolio/imgs/my-work3_2.png' %}">
-                    </div>
-                    <p>※過去のバージョンの写真が掲載されている可能性があります</p>
-                    <button id="openModal3" class="openModal">>Work Details</button>
-                    <section id="modalArea3" class="modalArea">
-                        <div id="modalBg3" class="modalBg"></div>
-                        <div class="modalWrapper">
-                            <div class="modalContents">
-                                <h3>東京ディズニーリゾート待ち時間解析アプリ</h3>
-                                <h3>(WEBアプリ版)</h3>
-                                <img src="{% static 'portfolio/imgs/my-work3_3.png' %}">
-                                <p>※過去のバージョンの写真が掲載されている可能性があります</p>
-                                <h3>製作期間</h3>
-                                <p>約3週間</p>
-                                <p>※現在作成中</p>
-                                <h3>バージョン</h3>
-                                <div class="librarys">
-                                    <img src="https://img.shields.io/github/v/release/sai11121209/TDR_Wait_Time_Analysis_WebApp">
-                                    <img src="https://img.shields.io/github/v/release/sai11121209/TDR_Wait_Time_Analysis_WebApp?include_prereleases&label=pre_release">
-                                </div>
-                                <h3>ステータス</h3>
-                                <div class="librarys">
-                                    <img src="https://img.shields.io/uptimerobot/ratio/m785528534-06334c68d560cafe68471576">
-                                    <img src="https://img.shields.io/github/issues/sai11121209/TDR_Wait_Time_Analysis_WebApp">
-                                </div>
-                                <h3>使用言語</h3>
-                                <p>Python3.8.3</p>
-                                <p>HTML</p>
-                                <p>CSS</p>
-                                <p>Javascript</p>
-                                <h3>使用フレームワーク</h3>
-                                <p>Django:3.0.7</p>
-                                <p>jQuery:3.4.1</p>
-                                <h3>使用データベース</h3>
-                                <p>開発環境:MySQL</p>
-                                <p>本番環境:PostgreSQL</p>
-                                <h3>使用プラットフォーム</h3>
-                                <p>AWS:EC2</p>
-                                <p>AWS:RDS</p>
-                                <h3>使用Pythonライブラリ</h3>
-                                <p>requirements記載のライブラリです</p>
-                                <div class="librarys">
-                                    {% for tdrapp_requirement in tdrapp_requirements %}
-                                        <img src={{ tdrapp_requirement }} >
-                                    {% endfor %}
-                                </div>
-                                <h4>Chart.jsを用いることで待ち時間の推移を瞬時に可視化</h4>
-                                <p>東京ディズニーリゾートのアトラクション待ち時間を<br>出来る限り少なくすることで一日満喫したい!<br>という意気込みで開発をしたTDR待ち時間解析アプリを<br>より見やすくより本家に近いデザインをテーマに作り替えました。</p>
-                                <p>またwebアプリということで、プラットフォームを選ぶことなく<br>使用することが出来るのがポイントです。</p>
-                                <p>現在開発中ですが後の機能追加で先週のデータと比較するなど<br>いかに待ち時間を減らすか、を目標に開発していきます。</p>
-                                <p>開発を行う上の練習としてGit-Flowを導入しています。</p>
-                                <p>※サイトへのアクセスは承認ユーザのみとなっています。</p>
-                                <button onClick="location.href='https://github.com/sai11121209/TDR_Wait_Time_Analysis_WebApp'">Visit github</button>
-                                <button id="closeModal3" class="closeModal">Close</button>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <div class="my-work">
-                    <h3>天気予報アプリ</h3>
-                    <div>
-                        <img src="{% static 'portfolio/imgs/my-work4_1.png' %}">
-                    </div>
-                    <button id="openModal4" class="openModal">>Work Details</button>
-                    <section id="modalArea4" class="modalArea">
-                        <div id="modalBg4" class="modalBg"></div>
-                        <div class="modalWrapper">
-                            <div class="modalContents">
-                                <h1>天気予報アプリ</h1>
-                                <img src="{% static 'portfolio/imgs/my-work4_2.png' %}">
-                                <h3>製作期間</h3>
-                                <p>約1週間</p>
-                                <h3>使用言語</h3>
-                                <p>iPhone X (Pythonista3): Python3.6</p>
-                                <h3>使用Pythonライブラリ</h3>
-                                <div class="librarys">
-                                    <img src="https://img.shields.io/pypi/v/Pillow?label=Pillow">
-                                    <img src="https://img.shields.io/pypi/v/requests?label=requests">
-                                </div>
-                                <h4>iPhone本体のGPS機能を使用して現在地の天気予報を表示</h4>
-                                <p>本アプリはlivedoor天気情報APIのWeather Hacks、<br>農研機構apiの簡易逆ジオコーディングサービス<br>この双方を活用することで現在いる大まかな場所や、<br>その場所の天気を素早く確認することができるアプリです。</p>
-                                <p>またこれからの天気に応じて画面の背景を切り替えることで、<br>文字を読まなくともこれからの天気を把握することが出来ます。</p>
-                                <button onclick="location.href='https://github.com/sai11121209/Weather_Checker'">Visit github</a>
-                                <button id="closeModal4" class="closeModal">Close</button>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <h3>今後の取り組み</h3>
-                <p>当サイト製作時に得られた知識を生かして以前作成した東京ディズニーリゾート待ち時間解析アプリをWebアプリに作り替えることで更なる理解を深めようと考えています。</p>
-            </section>
-        </div>
-        <div id="contact">
-            <section class="contact-img">
-                <div class="contents-header">
-                    <h2>Contact</h2>
-                    <a href="#my-contact"><img class="icon-arrow" src="{% static 'portfolio/imgs/icon_arrow.png' %}"></a>
-                </div>
-            </section>
-            <section id="my-contact">
-                <h3>フォーム</h3>
-                    {% if username.id != None %}
-                        <p>氏名・メールアドレスはアカウントの情報を使用するため省略。</p>
-                    {% endif %}
-                <form method="POST" novalidate>
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit">送信</button>
-                </form>
-            </section>
-        </div>
+            </div>
+            <p>学習したプログラミング言語をただ覚えるのではなく、自分で1から実際にプログラムを作ることがプログラミング学習だと考え日々学習しています。</p>
+            <h3>所属</h3>
+            <p>工学院大学 コンピュータ科学科 3年</p>
+            <h3>趣味</h3>
+            <p>新しいプログラムを作成し、新たなことにチャレンジすることや、海外旅行に行き他国の文化に触れること、音楽鑑賞などです。</p>
+            <h3>言語・フレームワーク</h3>
+            <p>主な使用可能言語はPython, Java, C言語です。</p>
+            <p>またこのポートフォリオや、ブログ等のWebサービスの制作を通してHTML, CSS, JavascriptまたPythonのフレームワークDjangoの学習をしています。</p>
+            <h3>OS</h3>
+            <p>Windows</p>
+            <h3>メールアドレス</h3>
+            <p>sai11121209_at_gmail.com</p>
+            <p>お手数ですが_at_を@への置き換えをよろしくお願いいたします</p>
+        </section>
     </div>
+    <div id="work">
+        <section class="work-img">
+            <div class="contents-header">
+                <h2>Work</h2>
+                <a href="#my-works"><img class="icon-arrow" src="{% static 'portfolio/imgs/icon_arrow.png' %}"></a>
+            </div>
+        </section>
+        <section id="my-works">
+            <div class="my-work">
+                <h3>ポートフォリオ</h3>
+                <div>
+                    <img class="my-work-web-imgs" src="{% static 'portfolio/imgs/my-work1_1.png' %}">
+                </div>
+                <button id="openModal1" class="openModal">>Work Details</button>
+                <section id="modalArea1" class="modalArea">
+                    <div id="modalBg1" class="modalBg"></div>
+                    <div class="modalWrapper">
+                        <div class="modalContents">
+                            <h3>ポートフォリオ</h3>
+                            <img class="modalContents-web-imgs" src="{% static 'portfolio/imgs/my-work1_2.png' %}">
+                            <h3>製作期間</h3>
+                            <p>デプロイまで約2週間</p>
+                            <h3>ステータス</h3>
+                            <div class="librarys">
+                                <img src="https://img.shields.io/uptimerobot/ratio/m785596360-28e377397808e6bde0f2628e">
+                            </div>
+                            <h3>使用言語</h3>
+                            <p>Python3.8.3</p>
+                            <p>HTML</p>
+                            <p>CSS</p>
+                            <p>Javascript</p>
+                            <h3>使用フレームワーク</h3>
+                            <p>Django:3.0.7</p>
+                            <p>jQuery:3.4.1</p>
+                            <h3>使用データベース</h3>
+                            <p>開発環境:MySQL</p>
+                            <p>本番環境:PostgreSQL</p>
+                            <h3>使用Pythonライブラリ</h3>
+                            <p>requirements記載のライブラリです</p>
+                            <div class="librarys">
+                                {% for requirement in requirements %}
+                                <img src={{ requirement }}>
+                                {% endfor %}
+                            </div>
+                            <h4>ポートフォリオだけではなくブログも使えるWebサイト</h4>
+                            <p>このサイトを作成するにあたって<br>サイト全体をシンプルに見やすくするために<br>黒と白を基調とした配色を心掛けました。</p>
+                            <p>またフレームワークの学習、<br>データベースの学習を行うために<br>WordPressをあえて使用せず作成しました。</p>
+                            <button onClick="location.href='https://github.com/sai11121209/Portfolio'">Visit
+                                github</button>
+                            <button id="closeModal1" class="closeModal">Close</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="my-work">
+                <h3>東京ディズニーリゾート待ち時間解析アプリ</h3>
+                <div>
+                    <img src="{% static 'portfolio/imgs/my-work2_1.png' %}">
+                    <img src="{% static 'portfolio/imgs/my-work2_2.png' %}">
+                </div>
+                <button id="openModal2" class="openModal">>Work Details</button>
+                <section id="modalArea2" class="modalArea">
+                    <div id="modalBg2" class="modalBg"></div>
+                    <div class="modalWrapper">
+                        <div class="modalContents">
+                            <h3>東京ディズニーリゾート待ち時間解析アプリ</h3>
+                            <img src="{% static 'portfolio/imgs/my-work2_3.png' %}">
+                            <h3>製作期間</h3>
+                            <p>約2週間</p>
+                            <h3>使用言語</h3>
+                            <p>Windows10: Python3.7.8</p>
+                            <p>iPhone X (Pythonista3): Python3.6</p>
+                            <h3>使用Pythonライブラリ</h3>
+                            <div class="librarys">
+                                <img
+                                    src="https://img.shields.io/pypi/v/mysql-connector-python?label=mysql-connector-python">
+                                <img src="https://img.shields.io/pypi/v/sshtunnel?label=sshtunnel">
+                                <img src="https://img.shields.io/pypi/v/requests?label=requests">
+                                <img src="https://img.shields.io/pypi/v/pandas?label=Pandas">
+                                <img src="https://img.shields.io/pypi/v/matplotlib?label=matplotlib">
+                            </div>
+                            <h4>matplotlibを用いることで待ち時間の推移を瞬時に可視化</h4>
+                            <p>東京ディズニーリゾートのアトラクション待ち時間を<br>出来る限り少なくすることで一日満喫したい!<br>という意気込みで開発をしました。</p>
+                            <p>このアプリ最大の特徴がアトラクションそれぞれの待ち時間を上のような形で推移をグラフとして表示することが出来る点です。</p>
+                            <p>また一日の待ち時間データを任意の間隔で取得可能なのできめ細かいグラフも描くことが可能です。</p>
+                            <p>
+                                <button
+                                    onClick="location.href='https://github.com/sai11121209/TDR_Wait_Time_Analysis_App'">Visit
+                                    github</button>
+                                <button id="closeModal2" class="closeModal">Close</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="my-work">
+                <h3>東京ディズニーリゾート待ち時間解析アプリ(WEBアプリ版)</h3>
+                <div>
+                    <img src="{% static 'portfolio/imgs/my-work3_1.png' %}">
+                    <img src="{% static 'portfolio/imgs/my-work3_2.png' %}">
+                </div>
+                <p>※過去のバージョンの写真が掲載されている可能性があります</p>
+                <button id="openModal3" class="openModal">>Work Details</button>
+                <section id="modalArea3" class="modalArea">
+                    <div id="modalBg3" class="modalBg"></div>
+                    <div class="modalWrapper">
+                        <div class="modalContents">
+                            <h3>東京ディズニーリゾート待ち時間解析アプリ</h3>
+                            <h3>(WEBアプリ版)</h3>
+                            <img src="{% static 'portfolio/imgs/my-work3_3.png' %}">
+                            <p>※過去のバージョンの写真が掲載されている可能性があります</p>
+                            <h3>製作期間</h3>
+                            <p>約3週間</p>
+                            <p>※現在作成中</p>
+                            <h3>バージョン</h3>
+                            <div class="librarys">
+                                <img
+                                    src="https://img.shields.io/github/v/release/sai11121209/TDR_Wait_Time_Analysis_WebApp">
+                                <img
+                                    src="https://img.shields.io/github/v/release/sai11121209/TDR_Wait_Time_Analysis_WebApp?include_prereleases&label=pre_release">
+                            </div>
+                            <h3>ステータス</h3>
+                            <div class="librarys">
+                                <img src="https://img.shields.io/uptimerobot/ratio/m785528534-06334c68d560cafe68471576">
+                                <img
+                                    src="https://img.shields.io/github/issues/sai11121209/TDR_Wait_Time_Analysis_WebApp">
+                            </div>
+                            <h3>使用言語</h3>
+                            <p>Python3.8.3</p>
+                            <p>HTML</p>
+                            <p>CSS</p>
+                            <p>Javascript</p>
+                            <h3>使用フレームワーク</h3>
+                            <p>Django:3.0.7</p>
+                            <p>jQuery:3.4.1</p>
+                            <h3>使用データベース</h3>
+                            <p>開発環境:PostgreSQL</p>
+                            <p>本番環境:PostgreSQL</p>
+                            <h3>使用プラットフォーム</h3>
+                            <p>AWS:EC2</p>
+                            <p>AWS:RDS</p>
+                            <h3>使用Pythonライブラリ</h3>
+                            <p>requirements記載のライブラリです</p>
+                            <div class="librarys">
+                                {% for tdrapp_requirement in tdrapp_requirements %}
+                                <img src={{ tdrapp_requirement }}>
+                                {% endfor %}
+                            </div>
+                            <h4>Chart.jsを用いることで待ち時間の推移を瞬時に可視化</h4>
+                            <img src="{% static 'portfolio/imgs/my-work3_4.png' %}">
+                            <p>東京ディズニーリゾートのアトラクション待ち時間を<br>出来る限り少なくすることで一日満喫したい!<br>という意気込みで開発をしたTDR待ち時間解析アプリを<br>より見やすくより本家に近いデザインをテーマに作り替えました。
+                            </p>
+                            <p>またwebアプリということで、プラットフォームを選ぶことなく<br>使用することが出来るのがポイントです。</p>
+                            <h4>現在のバージョン1.5.0.4では以下の機能が実装されています。</h4>
+                            <ol>
+                                <li>当日の待ち時間推移グラフ、テーブルの表示機能</li>
+                                <li>東京ディズニーリゾートの各サービスへのアクセス機能</li>
+                                <li>Google Static MAP APIを用いた特定施設周辺の地図の表示機能</li>
+                                <li>混雑順アトラクション表示機能</li>
+                                <li>過去の待ち時間推移グラフの表示機能</li>
+                                <li>過去2週間の待ち時間テータを元に待ち時間予測グラフを出力する機能</li>
+                                <li>各ユーザが指定できるお気に入りアトラクション機能</li>
+                                <li>アトラクション以外のレストラン、ショップの情報を表示する機能</li>
+                                <li>現在の舞浜の天気を表示する機能</li>
+                                <li>過去2週間のデータをもとに一時運営、案内中止アトラクションの再開予測機能</li>
+                            </ol>
+                            <p>今後はサイト内のレスポンススピード等を改善しつつ新機能を追加していきます。</p>
+                            <p>今後追加予定の機能はGitHubぼIssueに追加していきます。</p>
+                            <p>開発を行う上の練習としてGit-Flowを導入しています。</p>
+                            <p>※サイトへのアクセスは承認ユーザのみとなっています。</p>
+                            <button
+                                onClick="location.href='https://github.com/sai11121209/TDR_Wait_Time_Analysis_WebApp'">Visit
+                                github</button>
+                            <button id="closeModal3" class="closeModal">Close</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="my-work">
+                <h3>天気予報アプリ</h3>
+                <div>
+                    <img src="{% static 'portfolio/imgs/my-work4_1.png' %}">
+                </div>
+                <button id="openModal4" class="openModal">>Work Details</button>
+                <section id="modalArea4" class="modalArea">
+                    <div id="modalBg4" class="modalBg"></div>
+                    <div class="modalWrapper">
+                        <div class="modalContents">
+                            <h1>天気予報アプリ</h1>
+                            <img src="{% static 'portfolio/imgs/my-work4_2.png' %}">
+                            <h3>製作期間</h3>
+                            <p>約1週間</p>
+                            <h3>使用言語</h3>
+                            <p>iPhone X (Pythonista3): Python3.6</p>
+                            <h3>使用Pythonライブラリ</h3>
+                            <div class="librarys">
+                                <img src="https://img.shields.io/pypi/v/Pillow?label=Pillow">
+                                <img src="https://img.shields.io/pypi/v/requests?label=requests">
+                            </div>
+                            <h4>iPhone本体のGPS機能を使用して現在地の天気予報を表示</h4>
+                            <p>本アプリはlivedoor天気情報APIのWeather
+                                Hacks、<br>農研機構apiの簡易逆ジオコーディングサービス<br>この双方を活用することで現在いる大まかな場所や、<br>その場所の天気を素早く確認することができるアプリです。
+                            </p>
+                            <p>またこれからの天気に応じて画面の背景を切り替えることで、<br>文字を読まなくともこれからの天気を把握することが出来ます。</p>
+                            <button onclick="location.href='https://github.com/sai11121209/Weather_Checker'">Visit
+                                github</a>
+                                <button id="closeModal4" class="closeModal">Close</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <h3>今後の取り組み</h3>
+            <p>当サイト製作時に得られた知識を生かして以前作成した東京ディズニーリゾート待ち時間解析アプリをWebアプリに作り替えることで更なる理解を深めようと考えています。</p>
+        </section>
+    </div>
+    <div id="contact">
+        <section class="contact-img">
+            <div class="contents-header">
+                <h2>Contact</h2>
+                <a href="#my-contact"><img class="icon-arrow" src="{% static 'portfolio/imgs/icon_arrow.png' %}"></a>
+            </div>
+        </section>
+        <section id="my-contact">
+            <h3>フォーム</h3>
+            {% if username.id != None %}
+            <p>氏名・メールアドレスはアカウントの情報を使用するため省略。</p>
+            {% endif %}
+            <form method="POST" novalidate>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">送信</button>
+            </form>
+        </section>
+    </div>
+</div>
 {% endblock contents %}

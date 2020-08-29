@@ -203,7 +203,7 @@ body.fixed {
     transform:translate(-50%,-50%);
     width: 70%;
     height: 80%;
-    max-width: 500px;
+    max-width: 650px;
     padding: 10px 30px;
     background-color: #fff;
     overflow-y:scroll;
